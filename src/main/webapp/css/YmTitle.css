@@ -1,0 +1,71 @@
+@keyframes jinru {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.showMenu {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    transition: transform 800ms ease;
+    will-change: transform;
+}
+
+.hideMenu {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    transition: transform 800ms ease;
+    will-change: transform;
+}
+
+.showSelectBizhi {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    transition: transform 300ms ease;
+    will-change: transform;
+}
+
+.showSelectBizhi_two {
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+    transition: transform 600ms ease;
+    will-change: transform;
+}
+
+.hideSelectBizhi {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    transition: transform 300ms ease;
+    will-change: transform;
+}
+
+.hideSelectBizhi_two {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    transition: transform 600ms ease;
+    will-change: transform;
+}
+#backImg {
+    /*background: url("/Img_icon/back.gif");*/
+    background: url('/Img_icon/white_Album2.jpg');
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    /*-webkit-filter: blur(3px);*/
+    /*-moz-filter: blur(3px);*/
+    /*-o-filter: blur(3px);*/
+    /*-ms-filter: blur(3px);*/
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -3;
+    left: 0;
+    top: 0;
+}
+body {
+    animation-name: jinru;
+    animation-duration: 0.5s;
+}

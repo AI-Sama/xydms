@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.UserMapper">
+    <resultMap id="userResultMap" type="com.pojo.User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="lv" property="lv" jdbcType="INTEGER"/>
+        <result column="userLv" property="userLv" jdbcType="INTEGER"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="signDay" property="signDay" />
+        <result column="countDay" property="countDay" jdbcType="INTEGER"/>
+        <result column="userName" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="userImg" property="userImg" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="addUser" parameterType="com.pojo.User">
+         insert into user(email,userName,password) values(#{email},#{userName},#{password})
+    </insert>
+    <select id="selectByUserName" parameterType="java.lang.String" resultMap="userResultMap">
+        select * from user where userName=#{userName}
+    </select>
+    <select id="selectByEmail" parameterType="java.lang.String" resultMap="userResultMap">
+        select * from user where email=#{email}
+    </select>
+    <insert id="countDL"  parameterType="java.lang.String">
+        insert into countDL(userName,ip) values(#{userName},#{ip})
+    </insert>
+    <update id="checkIn">
+          update user set signDay=#{date},countDay=countDay+1 where userName=#{userName}
+    </update>
+    <update id="userLvChange" parameterType="java.lang.String">
+          update user set userLv=userLv+1 where userName=#{userName}
+    </update>
+    <select id="findUsers" resultMap="userResultMap">
+    select * from user order by lv desc,userLv desc
+    </select>
+    <update id="addManage" parameterType="java.lang.Integer">
+     update user set lv=1 where id=#{userId}
+    </update>
+    <update id="deleteManage" parameterType="java.lang.Integer">
+     update user set lv=0 where id=#{userId}
+    </update>
+    <update id="resetPassword" parameterType="java.lang.Integer">
+     update user set password="123456" where id=#{userId}
+    </update>
+</mapper>

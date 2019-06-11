@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#div1 {
+    position: absolute;
+     background-color: rgba(255,182,193,0.8);
+    width: 50%;
+    height: 1630px;
+    left: 50%;
+    transform:translateX(-50%);
+}
+#div1_sc {
+    position: absolute;
+    background-color: rgba(255,182,193,0.8);
+    width: 50%;
+    height: 1130px;
+    left: 50%;
+    transform:translateX(-50%);
+}
+.div3{
+    position: relative;
+    float: left;
+    /*	background-color: aqua;*/
+    overflow: hidden;
+    text-align: center;
+    width: 23.8%;
+    margin-top: 40px;
+    padding: 5px;
+    height: 340px
+}
+.div3_sc{
+    position: relative;
+    float: left;
+    /*	background-color: aqua;*/
+    overflow: auto;
+    text-align: center;
+    width: 23.8%;
+    margin-top: 40px;
+    padding: 5px;
+    height: 200px
+}
+.div3_sc::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.div3_sc::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.div3_sc::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+.div3_width{
+    position: relative;
+    float: left;
+    /*	background-color: aqua;*/
+    text-align: center;
+    width: 42%;
+    margin-top: 40px;
+    margin-left: 5%;
+    height: 250px
+}
+.shouc{
+    width: 20px;
+    position: absolute;
+    top: 13px;
+    right: 24px;
+}
+.shouc:hover{
+    width: 22px;
+    position: absolute;
+    top: 12px;
+    right: 23px;
+}
+.div4 {
+    position: absolute;
+    width: 99%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.ima1 {
+    border-radius: 5px;
+    width:90%;
+    max-height: 340px;
+}
+.ima1_sc{
+    border-radius: 5px;
+    width:100%;
+}
+.ima1_width{
+    border-radius: 5px;
+     width: 97%;
+    min-height: 80%;
+    max-height: 100%;
+}
+    a{
+       text-decoration: none;
+    }
+.a1 {
+    margin-left: 40px;
+}

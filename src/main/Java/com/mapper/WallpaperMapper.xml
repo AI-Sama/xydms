@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.WallpaperMapper">
+    <resultMap id="wallpaperResultMap" type="com.pojo.Wallpaper">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="imgMsg" property="imgMsg" jdbcType="VARCHAR"/>
+        <result column="imgAddr" property="imgAddr" jdbcType="VARCHAR"/>
+        <result column="upUser" property="upUser" jdbcType="VARCHAR"/>
+        <result column="clickNum" property="clickNum" jdbcType="INTEGER"/>
+        <result column="upTime" property="upTime" />
+        <result column="imgState" property="imgState" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="selectHotImgList" parameterType="java.lang.Integer" resultMap="wallpaperResultMap">
+    select * from wallpaper order by clickNum desc limit #{nowPageCount},15
+   </select>
+    <select id="selectWallpaperCount" resultType="java.lang.Integer">
+      select count(id) from wallpaper
+    </select>
+    <select id="selectNewImgList" parameterType="java.lang.Integer" resultMap="wallpaperResultMap">
+    select * from wallpaper order by upTime  desc limit #{nowPageCount},15
+   </select>
+    <update id="clickImg" parameterType="java.lang.String">
+        update wallpaper set chickNum=chickNum+1 where addr=#{addr}
+    </update>
+    <select id="findLastImg" resultType="java.lang.String" >
+    select imgAddr from wallpaper order by id desc limit 1
+  </select>
+    <insert id="upImg" parameterType="com.pojo.Wallpaper">
+      insert into wallpaper(imgAddr,upUser,imgMsg)value(#{imgAddr},#{upUser},#{imgMsg})
+    </insert>
+</mapper>

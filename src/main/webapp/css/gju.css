@@ -1,0 +1,11 @@
+.loadimg{
+    transform: rotate(3600deg);
+    transition: transform 20000ms linear;
+    will-change: transform;
+}
+.loadgj {
+    -webkit-transform: translateY(-1500px);
+    transform: translateY(-1500px);
+    transition: transform 1000ms ease;
+    will-change: transform;
+}

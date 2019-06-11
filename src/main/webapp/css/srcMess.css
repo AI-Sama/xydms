@@ -1,0 +1,156 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.srcBig {
+    width: 90%;
+    height:auto;
+    margin: auto;
+}
+
+.srcSmall {
+    box-shadow: darkgrey 5px 5px 20px 5px;
+    text-align: center;
+    width: 48%;
+    height: 300px;
+    float: left;
+    margin-top: 50px;
+    background-color: white;
+    border: 0.5px darkgray solid;
+    margin-left: 1%;
+}
+
+.srcImg {
+    margin-top: 20px;
+    width: 80%;
+    height: 70%;
+}
+
+.srcTitle {
+    width: 78%;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 30px;
+    font-size: 8px;
+    color: #5e5e5e;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/*###################################################################*/
+.bigSrc_Big {
+    width: 80%;
+    height: 95%;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid black;
+    background-color: oldlace;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.bigSrc_title {
+    width: 90%;
+    height: 4%;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bigSrc_text {
+    width: 80%;
+    height: auto;
+    font-size: 18px;
+    line-height: 30px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.src_img {
+    width: 100%;
+}
+
+.img_kuang {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.back_css {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px black solid;
+    background-color: black;
+}
+
+.back_css:hover {
+    background-color: bisque;
+}
+
+.back_img {
+    width: 40px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.showBigSrc {
+    position: absolute;
+    background-color: rgba(255, 182, 193, 0.8);
+    width: 50%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*########################################################*/
+.upSrcBig {
+    border: 2px oldlace solid;
+    background-color: white;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.upSrcTitle {
+    font-size: 20px;
+    width: 80%;
+    height: 10%;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.upSrcText {
+    font-size: 20px;
+    width: 80%;
+    height: 45%;
+    margin: auto;
+    margin-top: 20px;
+}
+.upSrcImg {
+    font-size: 20px;
+    width: 80%;
+    height: 10%;
+    margin: auto;
+    margin-top: 20px;
+}
+.submit_src {
+    height: 30px;
+    text-align: center;
+    width: 100%;
+    background-color: #ff8a00;
+    border: none;
+    border-radius: 4px;
+}

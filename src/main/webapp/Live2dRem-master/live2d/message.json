@@ -1,0 +1,60 @@
+{
+
+
+    "mouseover": [
+        {
+            "selector": "#showInfoBtn",
+            "text": ["查看最新吐槽和站内信息"]
+        },
+		{
+            "selector": "#showTalkBtn",
+            "text": ["要和我聊天吗？"]
+        },
+		{
+            "selector": "#hideButton",
+            "text": ["隐藏蕾姆，希望隐藏后我们还能再见面！"]
+        },
+		{
+            "selector": "#musicButton",
+            "text": ["给页面加点音乐吗？"]
+        },
+        {
+            "selector": "#youduButton",
+            "text": ["按钮有毒，癫痫患者不要开启！！！<br>点一下开启，再点一下可以关闭。"]
+        },
+		{
+            "selector": "#showBizhi",
+            "text": ["要看看最新的壁纸吗"]
+        },
+        {
+            "selector": ".bizhiMess",
+            "text": ["喜欢这张壁纸吗?快点进去收藏吧"]
+        },
+        {
+            "selector": "#hentai",
+            "text": ["Hentai!"]
+        },
+        {
+            "selector": "#gjMess",
+            "text": ["工具会持续更新哦,希望大家多多提建议呢~"]
+        },
+        {
+            "selector": "#gengxin",
+            "text": ["今天更新了些什么呢~"]
+        },
+        {
+            "selector": "#welcomeXy",
+            "text": ["欢迎加入雪渊动漫社~"]
+        },
+        {
+            "selector": ".searchbox",
+            "text": ["在找什么东西呢，需要帮忙吗？"]
+        }
+    ],
+    "click": [
+        {
+            "selector": "#landlord #live2d",
+            "text": ["有什么事要吩咐吗？", "那个……如果太过强硬，蕾姆会不自觉长出角的！","如果一直这样的话，蕾姆可是会生气的哦！", "头晕目眩", "要是能再温柔一点的话……"]
+        }
+    ]
+}

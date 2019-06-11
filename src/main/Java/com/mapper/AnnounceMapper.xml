@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.AnnounceMapper">
+    <resultMap id="announceResultMap" type="com.pojo.Announce">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="annName" property="annName" jdbcType="VARCHAR"/>
+        <result column="annText" property="annText" jdbcType="VARCHAR"/>
+        <result column="upTime" property="upTime"/>
+        <result column="upUser" property="upUser" jdbcType="VARCHAR"/>
+        <result column="lookNum" property="lookNum" jdbcType="INTEGER"/>
+        <result column="top" property="top"/>
+        <result column="imgSrc" property="imgSrc" jdbcType="INTEGER"/>
+    </resultMap>
+    <insert id="insertAnn" parameterType="com.pojo.Announce">
+       insert into announce(annName,annText,upUser,imgSrc)values(#{annName},#{annText},#{upUser},#{imgSrc})
+    </insert>
+</mapper>

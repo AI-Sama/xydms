@@ -1,0 +1,177 @@
+#dl_box{
+    position: fixed;
+    background-color: white;
+    width: 650px;
+    border-radius: 5px;
+    height: 300px;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    box-shadow: darkgray 20px 20px 60px 10px ;
+    z-index: 10;
+    display: none;
+}
+.head{
+    width: 650px;
+    height:60px;
+    line-height: 55px;
+}
+.denLu{
+    background-color:lightblue;
+    width: 100px;
+    height: 58px;
+    text-align: center;
+    line-height: 58px;
+    font-size: 30px;
+    border-radius: 0 0 8px 8px ;
+    color: white;
+    float: left;
+    margin-left: 15px;
+}
+.zhuce{
+    width: 100px;
+    height: 58px;
+    text-align: center;
+    line-height: 58px;
+    font-size: 30px;
+    color: black;
+    float: left;
+}
+.guanBi{
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    color: #5e5e5e;
+    float: right;
+}
+.guanBi:hover{
+    background-color: red;
+}
+.body{
+    height: 220px;
+    width: 650px;
+}
+.youXiang{
+    padding:0px 20px 0px 20px;
+    box-sizing: border-box;
+    width: 620px;
+    height: 60px;
+    border: 0.7px darkgray solid;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "宋体";
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.submit{
+    font-size: 30px;
+    color: white;
+    width: 650.5px;
+    height: 60px;
+    border: none;
+    border-radius: 0 0 10px 10px ;
+    background-color: lightblue;
+}
+/*###################################################################################*/
+#zc_box{
+    position: fixed;
+    background-color: white;
+    width: 650px;
+    border-radius: 5px;
+    height: 300px;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    box-shadow: darkgray 20px 20px 60px 10px ;
+    z-index: 10;
+    display: none;
+}
+.head_zc{
+    width: 650px;
+    height:60px;
+    line-height: 55px;
+}
+.denLu_zc{
+    width: 100px;
+    height: 58px;
+    text-align: center;
+    line-height: 58px;
+    font-size: 30px;
+    color: black;
+    float: left;
+    margin-left: 15px;
+}
+.zhuce_zc{
+    background-color: lightblue;
+    width: 100px;
+    height: 58px;
+    border-radius: 0 0 8px 8px ;
+    text-align: center;
+    line-height: 58px;
+    font-size: 30px;
+    color: white;
+    float: left;
+}
+.guanBi_zc{
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    color: #5e5e5e;
+    float: right;
+}
+.guanBi_zc:hover{
+    background-color: red;
+}
+.body_zc{
+    height: 220px;
+    width: 640px;
+
+}
+.youXiang_zc{
+    padding:0px 20px 0px 20px;
+    box-sizing: border-box;
+    width: 620px;
+    height: 56px;
+    border: 0.8px darkgray solid;
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "宋体";
+    margin-left: 15px;
+    margin-top: 11px;
+}
+.submit_zc{
+    width: 650.5px;
+    height: 60px;
+    border: none;
+    font-size: 30px;
+    color: white;
+    border-radius: 0 0 10px 10px ;
+    background-color: lightblue;
+}
+a{
+    text-decoration: none ;
+}
+/*########################IndexMobile###########################################################*/
+.showjianjie{
+    transform: translateY(-940px);
+    transition: transform 1000ms ease;
+    will-change: transform;
+}
+.loadimg{
+    transform: rotate(3600deg);
+    transition: transform 20000ms linear;
+    will-change: transform;
+}
+.hoverAnima:hover{
+    transform: scale(1.02);
+}
+.backcolor:hover{
+    transform: scale(1.1);
+}
+.gongao2:hover{
+    transform: scale(1.02);
+}

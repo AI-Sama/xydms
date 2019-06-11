@@ -1,0 +1,23 @@
+.pageCount_css{
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    height: 40px;
+    width: 200px;
+    left: 50%;
+    top: 1780px;
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.pageCount_css_sc{
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    height: 40px;
+    width: 200px;
+    left: 50%;
+    top: 1280px;
+    transform: translateX(-50%);
+    background-color: white;
+}

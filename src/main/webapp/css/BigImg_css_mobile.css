@@ -1,0 +1,94 @@
+#Img1{
+    width: 88%;
+}
+.bigImg_hide{
+    margin-top: 40px;
+    position: absolute;
+    text-align: center;
+    width: 90%;
+    max-height: 78%;
+    overflow: scroll;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.anjian_css{
+    text-align: center;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.button_css{
+    margin-right: 50px;
+    float: right;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px black solid;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.button_css:hover{
+    background-color: bisque;
+}
+.heart_css{
+    margin-top: 10px;
+    width: 33px;
+}
+.back_css{
+    margin-right: 4px;
+    margin-top: 5px;
+    width: 40px;
+}
+/*.img_user{*/
+    /*color: #5e5e5e;*/
+    /*text-align: center;*/
+    /*position: absolute;*/
+    /*width: 150px;*/
+    /*height: 20px;*/
+    /*font-size: 10px;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    /*top: 82%;*/
+/*}*/
+/*.img_mess{*/
+    /*color: #5e5e5e;*/
+    /*text-align: center;*/
+    /*position: absolute;*/
+    /*width: 400px;*/
+    /*height: 20px;*/
+    /*font-size: 10px;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    /*top: 80%;*/
+/*}*/
+.lv_button_css{
+    position: absolute;
+    border-radius: 50%;
+    right: 3%;
+    bottom: 7%;
+    background-color: black;
+    border: 1px black solid;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.delete_css{
+    margin-top: 5px;
+    width: 40px;
+}
+.lv_button_css:hover{
+    background-color: bisque;
+}
+.upName {
+    position: absolute;
+    font-size: 8px;
+    margin: auto;
+    color: #5e5e5e;
+    opacity: 0.8;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%)
+}

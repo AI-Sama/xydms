@@ -1,0 +1,87 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+a{
+  color: brown;
+}
+.title_css{
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  left: 50%;
+  top: 130px;
+  transform: translateX(-50%);
+  z-index: 8;
+  background-color: lightpink;
+}
+.li_menu{
+  color:brown;
+  border-radius: 8px;
+  margin-left: 5px;
+  text-align: center;
+  float: left;
+  width: 18%;
+  margin-top: 4px;
+  height: 40px;
+  line-height: 40px;
+}
+.ul_menu{
+  margin: auto;
+  width:90%;
+  height: 50px;
+}
+.li_menu:hover{
+  color: black;
+  background-color:antiquewhite;
+}
+.title_img{
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  height: 180px;
+  background-image: url(/Img_icon/titleImg.jpg);
+  background-size:cover;
+}
+.dl_css{
+  float: left;
+  background-color: lightpink;
+  color:red;
+  border-radius: 0px 0px 8px 8px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  margin-left: 3px;
+  line-height: 40px;
+}
+.head_dl{
+  position: absolute;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+}
+body{
+background-color:#fdf5e6;
+}
+.sc_title{
+    color: brown;
+    border-radius: 0px 0px 8px 8px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: pink;
+    width: 100%;
+    margin: auto;
+}
+.dl_css_name{
+  float: left;
+  background-color:lightpink;
+  color:red;
+  border-radius: 0px 0px 8px 8px;
+  text-align: center;
+  width: 140px;
+  height: 40px;
+  margin-left: 3px;
+  line-height: 40px;
+}
