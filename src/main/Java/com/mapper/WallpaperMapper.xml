@@ -11,13 +11,16 @@
         <result column="imgState" property="imgState" jdbcType="INTEGER"/>
     </resultMap>
     <select id="selectHotImgList" parameterType="java.lang.Integer" resultMap="wallpaperResultMap">
-    select * from wallpaper order by clickNum desc limit #{nowPageCount},15
+    select * from wallpaper where imgState=1 order by clickNum desc limit #{nowPageCount},15
    </select>
     <select id="selectWallpaperCount" resultType="java.lang.Integer">
       select count(id) from wallpaper
     </select>
     <select id="selectNewImgList" parameterType="java.lang.Integer" resultMap="wallpaperResultMap">
-    select * from wallpaper order by upTime  desc limit #{nowPageCount},15
+    select * from wallpaper where imgState=1 order by upTime  desc limit #{nowPageCount},15
+   </select>
+    <select id="selectJudgeImgList"  resultMap="wallpaperResultMap">
+    select * from wallpaper where imgState=0 order by upTime
    </select>
     <update id="clickImg" parameterType="java.lang.String">
         update wallpaper set chickNum=chickNum+1 where addr=#{addr}
@@ -28,4 +31,13 @@
     <insert id="upImg" parameterType="com.pojo.Wallpaper">
       insert into wallpaper(imgAddr,upUser,imgMsg)value(#{imgAddr},#{upUser},#{imgMsg})
     </insert>
+    <select id="findImg" parameterType="java.lang.String" resultMap="wallpaperResultMap">
+       select * from wallpaper where id=#{id}
+    </select>
+    <update id="deleteImg" parameterType="java.lang.String">
+       delete from wallpaper where id=#{id}
+    </update>
+    <update id="setImgState">
+         update wallpaper set imgState=#{num} where id=#{id}
+    </update>
 </mapper>

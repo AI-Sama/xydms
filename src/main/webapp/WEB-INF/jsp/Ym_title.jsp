@@ -158,11 +158,17 @@
             </summary>
             <ul>
                 <li>
-                    <a href="/Items/PlunStatus">
+                    <a href="/WallpaperController/jumpJudgeImg">
                         <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">评论审核</span></div>
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">壁纸审核</span></div>
                     </a>
                 </li>
+                <%--<li>--%>
+                    <%--<a href="/Items/PlunStatus">--%>
+                        <%--<div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span--%>
+                                <%--style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">评论审核</span></div>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
                 <li>
                     <a href="/AnnounceController/jumpAnnounce">
                         <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px"
@@ -206,10 +212,10 @@
     <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
     <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">个人资料</span></div>--%>
     <%--</a>--%>
-    <a href="/Items/MyScImg">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span
-                style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>
-    </a>
+    <%--<a href="/Items/MyScImg">--%>
+        <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
+                <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>--%>
+    <%--</a>--%>
     <a href="/ResourceController/loadSrc">
         <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
                                                                  src="/Img_icon/shetuanziyuan.png"><span

@@ -12,4 +12,8 @@ public interface WallpaperMapper {
     void clickImg(@Param("addr") String addr);//更新图片点击数
     String findLastImg();//查找最后一张图片名称
     void upImg(Wallpaper wallpaper);//上传图片
+    Wallpaper findImg(@Param("id")String id);//根据图片id查找图片
+    void  deleteImg(@Param("id")String id);//根据图片id删除图片
+    void  setImgState(@Param("id")String id,@Param("num") Integer num);//设置图片状态
+    List<Wallpaper> selectJudgeImgList();//查找审核的图片
 }

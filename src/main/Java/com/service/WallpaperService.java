@@ -72,5 +72,10 @@ public class WallpaperService {
             }
         }
     }
-
+    public Wallpaper findImg(String id) {//更新图片点击率
+         return wallpaperMapper.findImg(id);
+    }
+    public List<Wallpaper> selectJudgeImgList() {//查找全部审核的图片
+        return wallpaperMapper.selectJudgeImgList();
+    }
 }
