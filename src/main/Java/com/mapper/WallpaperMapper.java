@@ -16,4 +16,5 @@ public interface WallpaperMapper {
     void  deleteImg(@Param("id")String id);//根据图片id删除图片
     void  setImgState(@Param("id")String id,@Param("num") Integer num);//设置图片状态
     List<Wallpaper> selectJudgeImgList();//查找审核的图片
+    void setAllImgState();//全部通过
 }

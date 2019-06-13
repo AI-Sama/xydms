@@ -2,6 +2,7 @@ package com.service;
 import com.mapper.WallpaperMapper;
 import com.pojo.Wallpaper;
 import net.coobird.thumbnailator.Thumbnails;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -77,5 +78,11 @@ public class WallpaperService {
     }
     public List<Wallpaper> selectJudgeImgList() {//查找全部审核的图片
         return wallpaperMapper.selectJudgeImgList();
+    }
+    public void setImgState(String id, Integer state) {//审核图片
+        wallpaperMapper.setImgState(id,state);
+    }
+    public void setAllImgState() {//全部通过
+        wallpaperMapper.setAllImgState();
     }
 }

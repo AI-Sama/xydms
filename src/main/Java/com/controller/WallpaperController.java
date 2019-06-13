@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -88,4 +89,18 @@ public class WallpaperController {
         modelAndView.setViewName("JudgeWallpaper");
         return modelAndView;
     }
+    @RequestMapping(value = "/JudgeImg", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  JudgeImg(String imgId, Integer imgState)
+            throws Exception {//图片审核
+       wallpaperService.setImgState(imgId,imgState);
+        return "操作成功";
+    }
+    @RequestMapping(value = "/JudgeAll", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  JudgeAll() throws Exception {//全部通过
+        wallpaperService.setAllImgState();
+        return "操作成功";
+    }
+
 }
