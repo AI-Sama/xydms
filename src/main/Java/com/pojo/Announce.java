@@ -1,12 +1,14 @@
 package com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Announce {
     private Integer id;
     private String annName;//公告名称
     private String annText;//公告内容
-    private Date upTime;//上传时间
+    private String  upTime;//上传时间
     private String upUser;//上传人
     private Integer lookNum;//查看数量
     private Boolean top;//是否置顶
@@ -58,11 +60,11 @@ public class Announce {
         this.annText = annText;
     }
 
-    public Date getUpTime() {
+    public String getUpTime() {
         return upTime;
     }
 
-    public void setUpTime(Date upTime) {
+    public void setUpTime(String upTime) {
         this.upTime = upTime;
     }
 

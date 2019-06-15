@@ -15,7 +15,7 @@
        insert into announce(annName,annText,upUser,imgSrc)values(#{annName},#{annText},#{upUser},#{imgSrc})
     </insert>
     <select id="findAnnounceByPage" parameterType="java.lang.Integer" resultMap="announceResultMap">
-         select id,annName,upUser,upTime,imgSrc,lookNum,top from announce order by top desc,upTime desc limit #{num},4
+         select id,annName,upUser,date_format(upTime, '%Y-%m-%d') as upTime,imgSrc,lookNum,top from announce order by top desc,upTime desc limit #{num},4
     </select>
     <select id="findAnnById" parameterType="java.lang.Integer" resultMap="announceResultMap">
           select * from announce where id=#{id}

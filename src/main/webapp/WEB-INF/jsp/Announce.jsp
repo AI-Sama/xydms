@@ -10,6 +10,7 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <link href="${pageContext.request.contextPath}/dist/summernote-lite.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/dist/summernote-lite.js"></script>
+    <script  src="/dist/lang/summernote-zh-CN.js"></script>
     <script>
             function subGongao() {
                 var biaoti=$("#typebti").val();
@@ -49,7 +50,7 @@
         placeholder: '输入公告内容(默认插入的第一张图片为主图).....',
         tabsize: 2,
         height: 850,
-        focus:true,
+        focus:false,
         lang:'zh-CN',
         toolbar:[
             ['style',['style','bold','italic','underline','clear','']],

@@ -12,21 +12,17 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/denglu.css">
     <script src="${pageContext.request.contextPath}/js/Index.js"></script>
     <script>
-        function loadmore(){
+        function loadmore(page){
+            var data={
+                page:page
+            }
             $.ajax({ //Jq的ajax方法
                 type: "POST",  //访问的方法
-                dataType: "text", //返回值
-                url: "/Items/loadMoreGongao", //访问的action路径
-             //   data: null,  //传输的数据
+                dataType: "json", //返回值
+                data:data,
+                url: "/AnnounceController/findAnnounceByPage", //访问的action路径
                 success: function (result){ //如果成功则进入这个函数
-                    if(result=="no"){
-                        $("#loadmore").text("没有更多了...");
-                        $("#loadmore").css("background-color","");
-                        $("#loadmore").css("font-size","20px");
-                        $("#loadmore").css("color","black");
-                    }else{
-                        window.location.reload();
-                    }
+                    alert(result)
                 }
             });
         }
@@ -182,7 +178,9 @@
                             <div style="float: right">
                                 <div style="float: left "><img width="20px" height="20px" src="/Img_icon/setutime.png">
                                 </div>
-                                <div style="float: left;color: black;line-height: 20px">&thinsp;<fmt:formatDate value="${item.upTime}" type="date"></fmt:formatDate></div>
+                                <div style="float: left;color: black;line-height: 20px">
+                                    &thinsp;${item.upTime}
+                                </div>
                             </div>
                             <div style="float: right">
                                 <div style="float: left"><img width="20px" height="20px" src="/Img_icon/lookIcon.png">
@@ -195,7 +193,7 @@
             </div>
         </a>
     </c:forEach>
-    <a href="javascript:loadmore()"><div id="loadmore" style="width: 20%;height: 40px;margin: auto;margin-top: 20px;text-align: center;color: white;line-height: 40px;background-color: lightblue">
+    <a href="javascript:loadmore('${sessionScope.annPage}')"><div id="loadmore" style="width: 20%;height: 40px;margin: auto;margin-top: 20px;text-align: center;color: white;line-height: 40px;background-color: lightblue">
         点击加载更多..
     </div></a>
 </div>

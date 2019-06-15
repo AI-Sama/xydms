@@ -4,6 +4,10 @@ import com.alibaba.druid.support.json.JSONUtils;
 import com.pojo.Announce;
 import com.pojo.User;
 import com.service.AnnounceService;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+import net.sf.json.processors.JsDateJsonValueProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping("/AnnounceController")
@@ -89,6 +90,22 @@ public class AnnounceController {
     public String  deleteAnn(Integer id){//删除一条公告
         announceService.deleteAnn(id);
         return "删除成功";
+    }
+    @RequestMapping(value = "/findAnnounceByPage", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  findAnnounceByPage(Integer page,HttpSession httpSession){//根据页数查找公告
+        page+=1;
+       List<Announce> anns= announceService.findAnnounceByPage(page);
+       if(anns.size()<=0){
+           JSONObject jsonObject=new JSONObject();
+           jsonObject.put("msg","没有更多了");
+           return jsonObject.toString();
+       }
+
+        JsonConfig jsonConfig=new JsonConfig();
+        JSONArray jsonArray=JSONArray.fromObject(anns);
+        System.out.println(jsonArray.toString());
+        return  jsonArray.toString();
     }
     @RequestMapping(value = "/changeAnnTop", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     @ResponseBody

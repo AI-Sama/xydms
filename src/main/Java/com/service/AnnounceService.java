@@ -5,6 +5,7 @@ import com.pojo.Announce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class AnnounceService {
     }
     public List<Announce> findAnnounceByPage(Integer page){//根据页数查找公告
         int num=page==1?0:(page-1)*4;
-        return announceMapper.findAnnounceByPage(num);
+        List<Announce> announces=announceMapper.findAnnounceByPage(num);
+        return announces;
     }
     public Announce findAnnById(Integer id){//根据id查找公告
         return announceMapper.findAnnById(id);

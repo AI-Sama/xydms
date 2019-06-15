@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.pojo.Anima;
+import com.pojo.Announce;
 import com.service.AnimaService;
 import com.service.AnnounceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,9 @@ public class IndexController {
             Map<String,List<Anima>> animaList= animaService.findAnima();
             httpSession.setAttribute("animaList", animaList);
         }
-       modelAndView.addObject("anns",announceService.findAnnounceByPage(1));
+        List<Announce> announces=announceService.findAnnounceByPage(1);
+       modelAndView.addObject("anns",announces);
+        httpSession.setAttribute("annPage",1);
         modelAndView.setViewName("index");
         return modelAndView;
     }
