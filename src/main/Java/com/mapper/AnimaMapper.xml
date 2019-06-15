@@ -11,4 +11,16 @@
     <select id="findAnima" resultMap="animaResultMap">
          select * from anima;
     </select>
+    <insert id="addAnima" parameterType="com.pojo.Anima">
+             insert into anima(weekDay,animaName,animaAddr)values(#{weekDay},#{animaName},#{animaAddr})
+    </insert>
+    <delete id="deleteAnima" parameterType="java.lang.Integer">
+           delete from anima where id=#{id}
+    </delete>
+    <delete id="deleteAnimaByName" parameterType="java.lang.String">
+           delete from anima where animaName=#{animaName}
+    </delete>
+    <delete id="dropAnima" parameterType="java.lang.Integer">
+           delete from anima
+    </delete>
 </mapper>

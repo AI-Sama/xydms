@@ -10,22 +10,48 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <script src="${pageContext.request.contextPath}/js/Index.js"></script>
     <script>
+        function dropAnimas() {
+            if(confirm("您确定要删除全部动画吗?")){
+                $.ajax({
+                    type:"post",
+                    url:"/AnimaController/dropAnimas",
+                    success:function (result) {
+                         alert(result)
+                    }
+                })
+            }
+        }
+        function deleteAnima() {
+           var animaName= prompt("请输入要删除的动画名称:");
+           var data={
+               animaName:animaName
+           }
+           $.ajax({
+                 type:"post",
+                 data:data,
+                 url:"/AnimaController/deleteAnima",
+                 success:function (result) {
+                       alert(result);
+                 }
+           })
+        }
         function updateAnima() {
-            var name=$("#animaName").val();
-            var href=$("#animaHref").val();
-            var week=$("#weekDay").val();
-            var animaList={
-                animaName:name,
-                animaAddr:href,
-                weekDay:week
+            var name = $("#animaName").val();
+            var href = $("#animaHref").val();
+            var week = $("#weekDay").val();
+            var animaList = {
+                animaName: name,
+                animaAddr: href,
+                weekDay: week
             }
             $.ajax({
-                type:"post",
-                contentType:"application/json",
-                url:"/Items/updateAnima",
-                data:JSON.stringify(animaList),
-                success:function(result){
+                type: "post",
+                url: "/AnimaController/addAnima",
+                data: animaList,
+                success: function (result) {
                     alert(result);
+                    $("#animaName").val("");
+                    $("#animaHref").val("");
                 }
             })
         }
@@ -36,20 +62,43 @@
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
-        <form action="" style="text-align: center;width: 90%;margin: auto;font-size: 20px;margin-top: 20px;background-color: white">
-        请输入番剧名称:<input id="animaName" type="text" style="width: 300px"><br>
-        请输入番剧链接:<input id="animaHref" type="text" style="width: 300px"><br>
-            请选择番剧更新日期:<select id="weekDay">
-            <option value="周一">星期一</option>
-            <option value="周二">星期二</option>
-            <option value="周三">星期三</option>
-            <option value="周四">星期四</option>
-            <option value="周五">星期五</option>
-            <option value="周六">星期六</option>
-            <option value="周日">星期日</option>
-        </select>
-            <br>
-            <input onclick="updateAnima()" type="button" value="提交" style="width: 100px">
-        </form>
+<div style="width: 90%;padding: 20px;margin: auto;font-size: 20px;margin-top: 20px;background-color: white">
+    <div style="width: 80%;margin: auto;margin-top: 50px;margin-bottom:50px;border: 2px lightblue solid">
+    <div style="margin: auto;;margin-top:10px;width: 100%;height: 50px;font-size: 20px;line-height: 50px;text-align: center">
+        <span style="display: block;float: left;width: 40%">请选择动画更新日期:</span>
+        <select id="weekDay" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
+        <option value="周一">星期一</option>
+        <option value="周二">星期二</option>
+        <option value="周三">星期三</option>
+        <option value="周四">星期四</option>
+        <option value="周五">星期五</option>
+        <option value="周六">星期六</option>
+        <option value="周日">星期日</option>
+    </select>
+    </div>
+    <div style="text-align: center;margin: auto;width: 100%;height: 50px;font-size: 20px;line-height: 50px">
+        <span style="display: block;float: left;width: 40%">请输入动画名称:</span>
+        <input id="animaName" type="text" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
+    </div>
+    <div style="text-align: center;margin: auto;width: 100%;height: 50px;font-size: 20px;line-height: 50px">
+        <span style="display: block;float: left;width: 40%">请输入动画链接:</span>
+        <input id="animaHref" type="text" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
+    </div>
+        <div style="text-align: center;margin: auto;margin-top: 20px;margin-bottom: 20px;width: 95%;height: 50px;font-size: 25px;line-height: 50px">
+
+          <a href="javascript:void(0)">
+              <div style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px"
+                 onclick="updateAnima()" style="width: 100px">提交
+            </div>
+            <div onclick="deleteAnima()" style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px">
+                删除一条番剧
+            </div>
+            <div onclick="dropAnimas()" style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px">
+                删除全部番剧
+            </div>
+          </a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

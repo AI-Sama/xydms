@@ -99,6 +99,23 @@ public class UserController {
     @ResponseBody
     public String resetPassword(Integer userId,HttpSession httpSession) throws Exception{//重置密码
         userService.resetPassword(userId);
-        return "重置密码成功";
+        return "操作成功,密码已重置为123456";
+    }
+    @RequestMapping(value = "/jumpPerson",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    public String jumpPerson() throws Exception{//跳转到个人信息页面
+        return "Person";
+    }
+    @RequestMapping(value = "/changePassword",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String changePassword(Integer userId,String oldPassword,String newPassword) throws Exception{//修改密码
+          User user= userService.selectByUserId(userId);
+          if(!user.getPassword().equals(oldPassword)){
+              return "原密码错误";
+          }
+        if (newPassword.trim().length() < 6||newPassword.trim().length() >10) {
+            return  "密码在6-10位之间";
+        }
+        userService.changePassword(userId,newPassword);
+        return "修改成功,重新登录后生效";
     }
 }

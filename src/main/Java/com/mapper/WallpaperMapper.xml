@@ -14,7 +14,7 @@
     select * from wallpaper where imgState=1 order by clickNum desc limit #{nowPageCount},15
    </select>
     <select id="selectWallpaperCount" resultType="java.lang.Integer">
-      select count(id) from wallpaper
+      select count(id) from wallpaper where imgState=1
     </select>
     <select id="selectNewImgList" parameterType="java.lang.Integer" resultMap="wallpaperResultMap">
     select * from wallpaper where imgState=1 order by upTime  desc limit #{nowPageCount},15
@@ -23,7 +23,7 @@
     select * from wallpaper where imgState=0 order by upTime
    </select>
     <update id="clickImg" parameterType="java.lang.String">
-        update wallpaper set chickNum=chickNum+1 where addr=#{addr}
+        update wallpaper set clickNum=clickNum+1 where id=#{id}
     </update>
     <select id="findLastImg" resultType="java.lang.String">
     select imgAddr from wallpaper order by id desc limit 1
@@ -34,13 +34,13 @@
     <select id="findImg" parameterType="java.lang.String" resultMap="wallpaperResultMap">
        select * from wallpaper where id=#{id} and imgState!=2
     </select>
-    <update id="deleteImg" parameterType="java.lang.String">
-       delete from wallpaper where id=#{id}
-    </update>
-    <update id="setImgState">
+    <update id="setImgState" parameterType="java.lang.Integer">
          update wallpaper set imgState=#{num} where id=#{id}
     </update>
     <update id="setAllImgState">
-      update wallpaper set imgState=1
+      update wallpaper set imgState=1 where imgState=0
     </update>
+    <delete id="deleteImg" parameterType="java.lang.Integer">
+        delete from wallpaper where id=#{id}
+    </delete>
 </mapper>

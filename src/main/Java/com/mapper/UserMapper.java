@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface  UserMapper{
     void addUser(User user);//添加账号
+    User selectByUserId(@Param("userId") Integer userId); //根据ID查找用户
     User selectByUserName(@Param("userName") String userName); //根据用户名查找用户
     User selectByEmail(@Param("email") String email); //根据邮箱查找用户
     void countDL(@Param("userName") String userName, @Param("ip") String ip);//记录登录ip
@@ -16,4 +17,6 @@ public interface  UserMapper{
     void addManage(@Param("userId") Integer userId);//添加管理员
     void deleteManage( @Param("userId") Integer userId);//删除管理员
     void resetPassword(@Param("userId") Integer userId);//重置密码
+    void setPassword(@Param("password")String password,@Param("userId")Integer userId);//修改密码
+
 }

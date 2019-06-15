@@ -9,7 +9,6 @@
     <title>壁纸审核</title>
 </head>
 
-<
 <script>
     function judgeImg(id, state, num) {
         var data = {
@@ -61,7 +60,7 @@
         </a>
 <div id="all" style="width: 95%;margin:auto;">
     <c:forEach items="${imgs}" var="img" varStatus="num">
-        <div id="img${num.index}" style="margin-left:2%;width: 31%;float: left;height: 450px;">
+        <div id="img${num.index}" style="margin-top: 20px;margin-left:2%;width: 31%;float: left;height: 450px;">
             <a href="/WallpaperController/jumpImgDetails?id=${img.id}">
                 <div class="imgHover" style="background-image: url('/smallImg/${img.imgAddr}');
                         background-size:cover;background-position:center;

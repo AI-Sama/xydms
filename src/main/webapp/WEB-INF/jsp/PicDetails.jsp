@@ -11,16 +11,19 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <script src="${pageContext.request.contextPath}/js/img.js"></script>
 </head>
-<body style="width: 100%;height: 100%">
+<body style="width: 100%;height: 100%;overflow-x: hidden">
 <div style="position: relative;overflow: auto;width: 90%;max-height:90%;margin: auto;text-align: center">
-    <img style="min-width: 60%;max-width: 100%" src="/bigImg/${img.imgAddr}">
+    <img style="min-width: 50%;max-width: 100%" src="/bigImg/${img.imgAddr}">
 </div>
 <table class="upName">
     <tr>
+        <th><img style="height: 18px;width: 18px;" src="/Img_icon/lookIcon.png"></th>
+        <td> ${img.clickNum}</td>
+        <td>&nbsp;&nbsp;</td>
         <th><img style="height: 18px;width: 18px" src="/Img_icon/renIcon.png"></th>
         <td>${img.upUser}</td>
         <td>&nbsp;&nbsp;</td>
-        <th><img style="height: 18px;width: 18px;" src="/Img_icon/wenjian.png"></th>
+        <th><img style="font-size: 15px;height: 18px;width: 18px;" src="/Img_icon/wenjian.png"></th>
         <td> ${img.imgMsg}</td>
     </tr>
 </table>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,7 +20,7 @@ public class ResourceController {
     @Autowired
     ResourceService resourceService;
     @RequestMapping(value = "/loadSrc", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
-    public ModelAndView loadSrc(Integer nowPageNum, HttpSession httpSession) {//查找
+    public ModelAndView loadSrc(Integer nowPageNum, HttpSession httpSession) {//跳转到社团资源页面
         if (nowPageNum == null || nowPageNum == 0) {
             nowPageNum = 1;
         }
@@ -50,7 +51,7 @@ public class ResourceController {
                 User user = (User) httpSession.getAttribute("user");
                 String name = user.getUserName();
                 resourceService.insertSrc(resource, srcFile, name);
-                httpSession.setAttribute("message", "上传成功");
+                httpSession.setAttribute("message", "上传成功,待管理员审核后可显示");
                 return "message";
             }
         }
@@ -59,21 +60,36 @@ public class ResourceController {
     @RequestMapping(value = "/jumpResDetails", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     public ModelAndView jumpResDetails(Integer messId, HttpSession httpSession) {//跳转到社团资源详情页面
         ModelAndView modelAndView = new ModelAndView();
-        User user = (User) httpSession.getAttribute("user");
-//        srcService.chickSrc(messId);
-        List<Resource> srcs = (List<Resource>) httpSession.getAttribute("srcs");
-        if (srcs != null) {
-            for (Resource src : srcs) {
-                if (src.getId().equals(messId)) {
-                    modelAndView.addObject("bigSrcMess", src);
-//                    List<Plun> pluns=plunService.selectGonGaoPl(1,srcmess.getId());
-//                    modelAndView.addObject("pluns",pluns);
-                    break;
-                }
-            }
-        }
+        resourceService.clickSrc(messId);
+        Resource resource =resourceService.selectSrc(messId);
+        modelAndView.addObject("bigSrcMess",resource);
         modelAndView.setViewName("ResourceDetails");
         return modelAndView;
     }
-
+    @RequestMapping(value = "/jumpJudgeSrc",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    public ModelAndView jumpJudgeSrc(){//跳转到资源审核页面
+        List<Resource> srcs=resourceService.selectJudgeSrc();
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("srcs",srcs);
+        modelAndView.setViewName("JudgeSrc");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/setSrcState",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String  setSrcState(Integer srcId,Integer srcState){//资源审核
+        resourceService.setJudgeState(srcId,srcState);
+        return "操作成功";
+    }
+    @RequestMapping(value = "/setAllSrcState",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String  setAllSrcState(){//全部通过
+        resourceService.setAllState();
+        return "操作成功";
+    }
+    @RequestMapping(value = "/deleteSrc",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String  deleteSrc(Integer id){//删除图片
+        resourceService.deleteSrc(id);
+        return "操作成功";
+    }
 }

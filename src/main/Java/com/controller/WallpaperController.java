@@ -58,7 +58,7 @@ public class WallpaperController {
         for (int x = 0; x < up_file.length; x++) {
             if (!up_file[x].isEmpty()) {
                 wallpaperService.upImg(up_file, user.getUserName(), img_text);
-                httpSession.setAttribute("message", "上传成功");
+                httpSession.setAttribute("message", "上传成功,待管理员审核后可显示");
                 return "message";
             }
         }
@@ -76,6 +76,7 @@ public class WallpaperController {
             httpSession.setAttribute("message", "图片不存在或已被管理员删除");
             return modelAndView;
         }
+        wallpaperService.clickImg(id);
         modelAndView.addObject("img", wallpaper);
         modelAndView.setViewName("PicDetails");
         return modelAndView;
@@ -91,7 +92,7 @@ public class WallpaperController {
     }
     @RequestMapping(value = "/JudgeImg", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     @ResponseBody
-    public String  JudgeImg(String imgId, Integer imgState)
+    public String  JudgeImg(Integer imgId, Integer imgState)
             throws Exception {//图片审核
        wallpaperService.setImgState(imgId,imgState);
         return "操作成功";
@@ -102,5 +103,10 @@ public class WallpaperController {
         wallpaperService.setAllImgState();
         return "操作成功";
     }
-
+    @RequestMapping(value = "/deleteImg", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  deleteImg(Integer id) throws Exception {//删除图片
+        wallpaperService.deleteImg(id);
+        return "操作成功";
+    }
 }

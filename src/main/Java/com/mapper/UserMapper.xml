@@ -43,4 +43,10 @@
     <update id="resetPassword" parameterType="java.lang.Integer">
      update user set password="123456" where id=#{userId}
     </update>
+    <update id="setPassword">
+     update user set password=#{password} where id=#{userId}
+    </update>
+    <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="userResultMap">
+        select * from user where id=#{userId}
+    </select>
 </mapper>

@@ -56,7 +56,7 @@ public class UserService {
         if(user.getSignDay()==null){
             userMapper.checkIn(nowDate, userName);
             userLvChange(userName);
-            return "签到成功";
+            return "签到成功(签到天数:" +( user.getCountDay()+1) + "天)";
         }
         String qdDate = sm.format(user.getSignDay());
         if (qdDate.equals(sm.format(nowDate))) {
@@ -65,7 +65,7 @@ public class UserService {
             userMapper.checkIn(nowDate, userName);
             userLvChange(userName);
         }
-        return "签到成功";
+        return "签到成功(签到天数:" +( user.getCountDay()+1) + "天)";
     }
    public void userLvChange(String userName){//等级提升
        User user = userMapper.selectByUserName(userName);
@@ -91,5 +91,11 @@ public class UserService {
     }
     public void resetPassword(Integer userId){//重置密码
         userMapper.resetPassword(userId);
+    }
+    public User selectByUserId(Integer userId){//根据id查找用户
+       return userMapper.selectByUserId(userId);
+    }
+    public void changePassword(Integer userId,String password){//修改密码
+        userMapper.setPassword(password,userId);
     }
 }

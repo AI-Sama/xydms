@@ -59,4 +59,16 @@ public class AnimaService {
         map.put("week7",li7);
         return map;
     }
+    public void addAnima(Anima anima){//添加一条番剧
+           animaMapper.addAnima(anima);
+    }
+    public void deleteAnima(Integer id){//删除一条番剧
+        animaMapper.deleteAnima(id);
+    }
+    public void deleteAnimaByName(String animaName){//删除一条番剧
+        animaMapper.deleteAnimaByName(animaName);
+    }
+    public void dropAnima(){//删除全部番剧
+        animaMapper.dropAnima();
+    }
 }

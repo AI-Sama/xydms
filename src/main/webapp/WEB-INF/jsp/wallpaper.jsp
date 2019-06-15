@@ -29,7 +29,7 @@
     </c:forEach>
     <div style="border-radius: 10px;overflow:auto;line-height: 80px;font-size: 40px;margin-top:30px;background-color: lightblue;width: 100%;float: left;height: 100px;text-align: center">
         <c:if test="${nowPageCount>1}">
-            <a href="/Items/LoadImg?nowPageCount=${nowPageCount-1}&type=${type}">
+            <a href="/WallpaperController/jumpWallpaper?nowPageCount=${nowPageCount-1}&type=${type}">
                 <div style="color:white;margin-left: 20%;border-radius: 20px;float: left;width: 20%;height: 80px;margin-top:10px;">
                     上一页
                 </div>
@@ -43,7 +43,7 @@
         </c:if>
         <div style="width: 19%;float:left;line-height: 100px;color: white">${nowPageCount}/${pageCount}</div>
         <c:if test="${nowPageCount<pageCount}">
-            <a href="/Items/LoadImg?nowPageCount=${nowPageCount+1}&type=${type}">
+            <a href="/WallpaperController/jumpWallpaper?nowPageCount=${nowPageCount+1}&type=${type}">
                 <div style="color:white;border-radius: 20px;margin-right: 20%;float: right;width: 20%;height: 80px;margin-top:10px">
                     下一页
                 </div>

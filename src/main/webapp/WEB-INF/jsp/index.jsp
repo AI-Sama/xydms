@@ -79,7 +79,7 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -90,7 +90,7 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -101,7 +101,7 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -112,7 +112,7 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height:60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -123,18 +123,18 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
         </c:forEach>
     </div>
     <div id="zhou6" style="display: none">
-        <c:forEach items="${sessionScope.animaList.week6}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+        <c:forEach items="${sessionScope.animaList.week6}" var="week">
+            <a href="${week.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${week.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -145,7 +145,7 @@
             <a href="${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height:60px;background-color: lightblue;color: white">
-                    &#12288&#12288${zhou1.animaName}
+                    &#12288;&#12288;${zhou1.animaName}
                 </div>
             </a>
             <hr style="width: 100%;height: 5px;border: none;background-color: white">
@@ -154,40 +154,40 @@
 </div>
 <%-- 公告 --%>
 <div id="ggao" style="position: relative;margin-top: 950px">
-    <c:forEach items="${gongao}" var="item">
-        <a href="/Items/showBigGongao?id=${item.id}">
+    <c:forEach items="${anns}" var="item">
+        <a href="/AnnounceController/jumpAnnounceDetails?id=${item.id}">
             <div class="gongao">
                 <div class="gongao2"
                      style="color: gray;font-family: 楷体;font-size: 30px;margin: auto;margin-top: 20px;width: 88%;background-color: white;border-radius: 5px;height: 160px">
-                    <c:if test="${empty item.imgsrc}">
+                    <c:if test="${empty item.imgSrc}">
                     <div style="overflow: hidden;margin-left: 2%;margin-top: 10px;float: left;width: 27%;height: 140px">
                         <img width="100%" src="/Img_icon/bgSakura.jpg">
                     </div>
                     </c:if>
-                    <c:if test="${ not empty item.imgsrc}">
+                    <c:if test="${ not empty item.imgSrc}">
                         <div style="overflow: hidden;margin-left: 2%;margin-top: 10px;float: left;width: 27%;height: 140px">
-                            <img width="100%"  src="${item.imgsrc}">
+                            <img width="100%"  src="${item.imgSrc}">
                         </div>
                     </c:if>
                     <div style="margin-right: 2%;margin-top: 10px;float: right;width: 67%;height: 140px;">
                         <div style="width: 100%;height: 100px">
-                          ${item.gname}
+                          ${item.annName}
                         </div>
                         <div style="font-size: 20px;margin-top: 20px;width: 100%;height: 20px;opacity: 0.5">
                             <div style="float: left">
                                 <div style="float: left"><img width="20px" height="20px" src="/Img_icon/renIcon.png">
                                 </div>
-                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.upuser}</div>
+                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.upUser}</div>
                             </div>
                             <div style="float: right">
                                 <div style="float: left "><img width="20px" height="20px" src="/Img_icon/setutime.png">
                                 </div>
-                                <div style="float: left;color: black;line-height: 20px">&thinsp;<fmt:formatDate value="${item.uptime}" type="date"></fmt:formatDate></div>
+                                <div style="float: left;color: black;line-height: 20px">&thinsp;<fmt:formatDate value="${item.upTime}" type="date"></fmt:formatDate></div>
                             </div>
                             <div style="float: right">
                                 <div style="float: left"><img width="20px" height="20px" src="/Img_icon/lookIcon.png">
                                 </div>
-                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.seenum}&#12288</div>
+                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.lookNum}&#12288</div>
                             </div>
                         </div>
                     </div>

@@ -73,4 +73,22 @@ public class ResourceService {
             }
         }
     }
+    public List<Resource> selectJudgeSrc(){//查找待审核的项目
+     return resourceMapper.selectJudgeSrc();
+    }
+    public void setJudgeState(Integer id,Integer num){//审核资源
+          resourceMapper.setJudgeState(id,num);
+    }
+    public void setAllState(){//全部审核通过
+        resourceMapper.setAllState();
+    }
+    public Resource selectSrc(Integer id){//查找单个资源
+        return resourceMapper.selectSrc(id);
+    }
+    public void clickSrc(Integer id){//点击资源
+        resourceMapper.clickSrc(id);
+    }
+    public void deleteSrc(Integer id){//删除资源
+        resourceMapper.deleteSrc(id);
+    }
 }

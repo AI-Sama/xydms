@@ -31,7 +31,7 @@
     </c:forEach>
     <div style="border-radius: 10px;overflow:auto;line-height: 80px;font-size: 40px;margin-top:50px;background-color: lightblue;width: 100%;float: left;height: 100px;text-align: center">
         <c:if test="${nowPageNum>1}">
-            <a href="/Items/loadSrc?nowPageNum=${nowPageNum-1}&type=${type}">
+            <a href="/ResourceController/loadSrc?nowPageNum=${nowPageNum-1}&type=${type}">
                 <div style="color:white;margin-left: 20%;border-radius: 20px;float: left;width: 20%;height: 80px;margin-top:10px;">
                     上一页
                 </div>
@@ -45,7 +45,7 @@
         </c:if>
         <div style="width: 18%;float:left;line-height: 100px;color: white">${nowPageNum}/${allPageNum}</div>
         <c:if test="${nowPageNum<allPageNum}">
-            <a href="/Items/loadSrc?nowPageNum=${nowPageNum+1}&type=${type}">
+            <a href="/ResourceController/loadSrc?nowPageNum=${nowPageNum+1}&type=${type}">
                 <div style="color:white;border-radius: 20px;margin-right: 20%;float: right;width: 20%;height: 80px;margin-top:10px">
                     下一页
                 </div>

@@ -25,18 +25,9 @@
                     url:"/AnnounceController/insertAnn",
                     dataType:'text',
                     success:function(text) {
-                        if(text.length>0){
-                            alert('提交成功');
-                            window.location.replace("/IndexController/jumpIndex");
-                        }else{
-                            alert('提交失败');
-                        }
-
-                    },
-                    error:function () {
-                        alert("提交失败");
+                        alert(text)
+                        window.location.replace("/IndexController/jumpIndex");
                     }
-
                 })
             }
     </script>

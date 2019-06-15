@@ -14,4 +14,19 @@
     <insert id="insertAnn" parameterType="com.pojo.Announce">
        insert into announce(annName,annText,upUser,imgSrc)values(#{annName},#{annText},#{upUser},#{imgSrc})
     </insert>
+    <select id="findAnnounceByPage" parameterType="java.lang.Integer" resultMap="announceResultMap">
+         select id,annName,upUser,upTime,imgSrc,lookNum,top from announce order by top desc,upTime desc limit #{num},4
+    </select>
+    <select id="findAnnById" parameterType="java.lang.Integer" resultMap="announceResultMap">
+          select * from announce where id=#{id}
+    </select>
+    <delete id="deleteAnn" parameterType="java.lang.Integer">
+        delete from announce where id=#{id}
+    </delete>
+    <update id="changeAnnTop" parameterType="java.lang.Integer">
+        update announce set top=#{top} where id=#{id}
+    </update>
+    <update id="clickAnn" parameterType="java.lang.Integer">
+        update announce set lookNum=lookNum+1 where id=#{id}
+    </update>
 </mapper>

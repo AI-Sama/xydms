@@ -16,14 +16,32 @@
   <select id="selectLastSrcImg" resultType="java.lang.String">
     select srcImg01 from resource order by id desc limit 1
   </select>
+    <select id="selectSrc" resultMap="resourceResultMap">
+    select * from resource where id=#{id} and srcState!=2
+  </select>
     <insert id="insertSrc" parameterType="com.pojo.Resource">
-    insert into resource(srcTitle,srcText,upUser,srcImg01,srcImg02,srcImg03)
+     insert into resource(srcTitle,srcText,upUser,srcImg01,srcImg02,srcImg03)
     value(#{srcTitle},#{srcText},#{upUser},#{srcImg01},#{srcImg02},#{srcImg03})
     </insert>
     <select id="selectAllSrc" resultMap="resourceResultMap">
-       select * from resource order by id desc limit #{num},6;
+       select id,srcTitle,upUser,srcImg01 from resource where srcState=1 order by id desc limit #{num},6;
     </select>
     <select id="selectAllSrcPage" resultType="java.lang.Integer">
-    select count(id) from resource ;
+    select count(id) from resource where srcState=1;
   </select>
+    <select id="selectJudgeSrc" resultMap="resourceResultMap">
+      select id,srcTitle,upUser,srcImg01 from resource where srcState=0 order by upTime desc
+    </select>
+    <update id="setJudgeState" parameterType="java.lang.Integer">
+        update resource set srcState=#{num} where id=#{id}
+    </update>
+    <update id="setAllState">
+        update resource set srcState=1 where srcState=0
+    </update>
+    <update id="clickSrc" parameterType="java.lang.Integer">
+        update resource set lookNum=lookNum+1  where id=#{id}
+    </update>
+    <delete id="deleteSrc" parameterType="java.lang.Integer">
+      delete from resource where id=#{id}
+    </delete>
 </mapper>

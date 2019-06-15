@@ -30,8 +30,8 @@ public class WallpaperService {
         return a % 15 == 0 ? (a / 15) : ((a / 15) + 1);
     }
 
-    public void clickImg(String addr) {//更新图片点击率
-        wallpaperMapper.clickImg(addr);
+    public void clickImg(String id) {//更新图片点击率
+        wallpaperMapper.clickImg(id);
     }
 
     public void upImg(MultipartFile files[], String name, String imgMessage[]) {//上传图片
@@ -79,10 +79,13 @@ public class WallpaperService {
     public List<Wallpaper> selectJudgeImgList() {//查找全部审核的图片
         return wallpaperMapper.selectJudgeImgList();
     }
-    public void setImgState(String id, Integer state) {//审核图片
+    public void setImgState(Integer id, Integer state) {//审核图片
         wallpaperMapper.setImgState(id,state);
     }
     public void setAllImgState() {//全部通过
         wallpaperMapper.setAllImgState();
+    }
+    public void deleteImg(Integer id){//删除图片
+        wallpaperMapper.deleteImg(id);
     }
 }

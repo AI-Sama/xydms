@@ -54,18 +54,26 @@
             })
         }
 
-        function deleteZY(id) {
-            var i=id;
+        function deleteZY(srcId) {
+            var data={
+                id:srcId
+            }
             var boo=confirm("您确定要删除这条资源吗?");
             if(boo){
-                alert("删除成功");
-                window.location.replace("/Items/deleteZY?id="+i);
+                $.ajax({
+                    type:"post",
+                    url:"/ResourceController/deleteSrc",
+                    data:data,
+                    success:function (result) {
+                        alert(result)
+                        window.location.replace("/ResourceController/loadSrc");
+                    }
+                })
             }
         }
     </script>
 </head>
 <body bgcolor="#e4e7ee" >
-<!-- 登录表头-->
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
@@ -85,7 +93,6 @@
     </div>
     <hr style="border: 1px #ff8a00 solid;">
     <div class="bigSrc_text">
-
         ${bigSrcMess.srcText}
     </div>
     <br>
@@ -103,43 +110,43 @@
     <div class="back_css" onclick="window.history.go(-1)">
         <img class="back_img" src="/Img_icon/back.png">
     </div>
-    <c:if test="${sessionScope.user.lv>=5}">
+    <c:if test="${sessionScope.user.lv>=1}">
         <div class="back_css"  onclick="deleteZY('${bigSrcMess.id}')">
             <img class="back_img"  src="/Img_icon/delete.png">
         </div>
     </c:if>
 </div>
 
-<div style="width: 95%;height: 200px;margin: auto">
-    <textarea id="plun" style="resize: none;border-radius: 5px;font-size: 20px;width: 100%;height: 200px"
-              placeholder="说点什么吧......"></textarea>
-    <a href="javascript:void(0)">
-        <div onclick="fabuPl('${bigSrcMess.id}')"
-             style="border-radius: 0 0 8px 8px;float: right;line-height: 30px;color: white;width: 100px;height: 30px;text-align: center;background-color: lightblue">
-            发表评论
-        </div>
-    </a>
-</div>
-<br><br><br>
-<c:forEach items="${pluns}" var="plun" varStatus="num">
-    <div style="width: 95%;margin: auto;">
-        <div style="overflow: hidden;border-bottom: 1px #428bca dashed;margin: auto;width: 100%;background-color: white">
-            <div style="margin:10px 10px;float: left;overflow: hidden;width: 80px;height: 80px;border-radius: 50%">
-                <img width="100%" height="100%" src="/Img_icon/bgSakura.jpg">
-            </div>
-            <div style="float: right">#${num.index+1}</div>
-            <c:if test="${sessionScope.user.lv>4}">
-                <a href="javascript:deletePL('${plun.id}')"><div style="float: right;color: blue;margin-right: 5px">删除</div></a>
-            </c:if>
-            <div style="color: red;margin-left: 20px;font-size: 25px;float: left;width:80%;height: 40px;">
-                <div>${plun.pUserName}</div>
-            </div>
-            <div style="overflow: auto;margin-top: 10px;font-family: 楷体;font-size: 18px;float: left;width: 80%;margin-left: 20px">
-                    ${plun.pText}
-            </div>
-        </div>
-    </div>
-</c:forEach>
+<%--<div style="width: 95%;height: 200px;margin: auto">--%>
+    <%--<textarea id="plun" style="resize: none;border-radius: 5px;font-size: 20px;width: 100%;height: 200px"--%>
+              <%--placeholder="说点什么吧......"></textarea>--%>
+    <%--<a href="javascript:void(0)">--%>
+        <%--<div onclick="fabuPl('${bigSrcMess.id}')"--%>
+             <%--style="border-radius: 0 0 8px 8px;float: right;line-height: 30px;color: white;width: 100px;height: 30px;text-align: center;background-color: lightblue">--%>
+            <%--发表评论--%>
+        <%--</div>--%>
+    <%--</a>--%>
+<%--</div>--%>
+<%--<br><br><br>--%>
+<%--<c:forEach items="${pluns}" var="plun" varStatus="num">--%>
+    <%--<div style="width: 95%;margin: auto;">--%>
+        <%--<div style="overflow: hidden;border-bottom: 1px #428bca dashed;margin: auto;width: 100%;background-color: white">--%>
+            <%--<div style="margin:10px 10px;float: left;overflow: hidden;width: 80px;height: 80px;border-radius: 50%">--%>
+                <%--<img width="100%" height="100%" src="/Img_icon/bgSakura.jpg">--%>
+            <%--</div>--%>
+            <%--<div style="float: right">#${num.index+1}</div>--%>
+            <%--<c:if test="${sessionScope.user.lv>4}">--%>
+                <%--<a href="javascript:deletePL('${plun.id}')"><div style="float: right;color: blue;margin-right: 5px">删除</div></a>--%>
+            <%--</c:if>--%>
+            <%--<div style="color: red;margin-left: 20px;font-size: 25px;float: left;width:80%;height: 40px;">--%>
+                <%--<div>${plun.pUserName}</div>--%>
+            <%--</div>--%>
+            <%--<div style="overflow: auto;margin-top: 10px;font-family: 楷体;font-size: 18px;float: left;width: 80%;margin-left: 20px">--%>
+                    <%--${plun.pText}--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</c:forEach>--%>
 
 
 </body>

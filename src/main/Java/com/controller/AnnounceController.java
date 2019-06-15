@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.alibaba.druid.support.json.JSONUtils;
+import com.pojo.Announce;
 import com.pojo.User;
 import com.service.AnnounceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -55,15 +58,42 @@ public class AnnounceController {
     @RequestMapping(value = "/insertAnn", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     @ResponseBody
     public String insertAnn(String  annTitle, String annText, HttpSession httpSession)
-            throws Exception {
+            throws Exception {//插入一条公告
+        if(annTitle.trim().length()<=0){
+            return "标题不能为空";
+        }
+        if(annText.trim().length()<=0){
+            return "内容不能为空";
+        }
         User user=(User)httpSession.getAttribute("user");
         String username=user.getUserName();
         try{
             announceService.insertAnn(annText,annTitle,username);
         }catch (Exception e){
-            System.out.println(e);
-            return null;
+            return "操作失败,请稍候重试";
         }
-        return "yes";
+        return "操作成功";
+    }
+
+    @RequestMapping(value = "/jumpAnnounceDetails", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    public ModelAndView jumpAnnounceDetails(Integer id){//跳转到公告详情页面
+        ModelAndView modelAndView=new ModelAndView();
+         modelAndView.setViewName("AnnDetails");
+         Announce announce=announceService.findAnnById(id);
+         announceService.clickAnn(id);
+         modelAndView.addObject("announce",announce);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/deleteAnn", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  deleteAnn(Integer id){//删除一条公告
+        announceService.deleteAnn(id);
+        return "删除成功";
+    }
+    @RequestMapping(value = "/changeAnnTop", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @ResponseBody
+    public String  changeAnnTop(Integer id,Integer top){//更改置顶状态
+        announceService.changeAnnTop(id,top);
+        return "操作成功";
     }
 }

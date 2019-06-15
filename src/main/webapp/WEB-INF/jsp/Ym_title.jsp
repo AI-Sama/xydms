@@ -163,6 +163,12 @@
                                 style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">壁纸审核</span></div>
                     </a>
                 </li>
+                <li>
+                    <a href="/ResourceController/jumpJudgeSrc">
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">资源审核</span></div>
+                    </a>
+                </li>
                 <%--<li>--%>
                     <%--<a href="/Items/PlunStatus">--%>
                         <%--<div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span--%>
@@ -189,7 +195,7 @@
             </summary>
             <ul>
                 <li>
-                    <a href="/Items/jumpUpdateAnima">
+                    <a href="/AnimaController/jumpAnimaManage">
                         <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px"
                                                                                  src="/Img_icon/setutime.png"><span
                                 style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">番剧更新</span></div>
@@ -208,10 +214,10 @@
     <div onclick="qdDay()" style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
                                                                                src="/Img_icon/qd.png"><span
             style="font-size: 50px;margin-left: 20px; line-height: 100px">签到</span></div>
-    <%--<a href="/Items/jumpUser">--%>
-    <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
-    <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">个人资料</span></div>--%>
-    <%--</a>--%>
+    <a href="/UserController/jumpPerson">
+    <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span
+    style="font-size: 50px;margin-left: 20px; line-height: 100px">个人信息</span></div>
+    </a>
     <%--<a href="/Items/MyScImg">--%>
         <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
                 <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>--%>
