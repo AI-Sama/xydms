@@ -91,9 +91,10 @@ public class AnnounceController {
         announceService.deleteAnn(id);
         return "删除成功";
     }
-    @RequestMapping(value = "/findAnnounceByPage", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
+    @RequestMapping(value = "/findAnnounceByPage", produces = {"text/html;charset=utf-8;","application/json;"})//配置方法url路径
     @ResponseBody
     public String  findAnnounceByPage(Integer page,HttpSession httpSession){//根据页数查找公告
+        page=page%4==0?page/4:page/4+1;
         page+=1;
        List<Announce> anns= announceService.findAnnounceByPage(page);
        if(anns.size()<=0){
@@ -101,10 +102,7 @@ public class AnnounceController {
            jsonObject.put("msg","没有更多了");
            return jsonObject.toString();
        }
-
-        JsonConfig jsonConfig=new JsonConfig();
         JSONArray jsonArray=JSONArray.fromObject(anns);
-        System.out.println(jsonArray.toString());
         return  jsonArray.toString();
     }
     @RequestMapping(value = "/changeAnnTop", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径

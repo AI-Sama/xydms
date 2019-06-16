@@ -11,6 +11,27 @@
     <script src="${pageContext.request.contextPath}/js/Index.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/srcMess_mobile.css"/>
     <script>
+        function setTop(id,top) {
+            var topNum;
+            if(top=='true'){
+                topNum=0;
+            }else{
+                topNum=1;
+            }
+            var data={
+                id:id,
+                top:topNum
+            }
+            $.ajax({
+                type:"POST",
+                url:"/AnnounceController/changeAnnTop",
+                data:data,
+                success:function (result) {
+                    alert(result);
+                    window.location.reload();
+                }
+            })
+        }
         function fabuPl(itemid) {
             var ptext = $("#plun").val();
             if(ptext.trim().length<=0){
@@ -78,6 +99,16 @@
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
 <div class="bigSrc_Big">
+    <c:if test="${sessionScope.user.lv>=1}">
+    <a href="javascript:void(0)"><div onclick="setTop('${announce.id}','${announce.top}')" style="float: right;width: 100px;height: 40px;line-height: 40px;text-align: center;background-color: lightpink;color: white">
+        <c:if test="${announce.top==true}">
+        取消置顶
+        </c:if>
+        <c:if test="${announce.top==false}">
+            设为置顶
+        </c:if>
+    </div></a>
+    </c:if>
     <div class="bigSrc_title"><b>${announce.annName}</b>
         <table style="font-size: 8px;margin: auto; color: #5e5e5e;opacity: 0.6 ">
             <tr>

@@ -1,4 +1,4 @@
-#dl_box{
+#dl_box {
     position: fixed;
     background-color: white;
     width: 650px;
@@ -7,28 +7,31 @@
     left: 50%;
     top: 40%;
     transform: translateX(-50%);
-    box-shadow: darkgray 20px 20px 60px 10px ;
+    box-shadow: darkgray 20px 20px 60px 10px;
     z-index: 10;
     display: none;
 }
-.head{
+
+.head {
     width: 650px;
-    height:60px;
+    height: 60px;
     line-height: 55px;
 }
-.denLu{
-    background-color:lightblue;
+
+.denLu {
+    background-color: lightblue;
     width: 100px;
     height: 58px;
     text-align: center;
     line-height: 58px;
     font-size: 30px;
-    border-radius: 0 0 8px 8px ;
+    border-radius: 0 0 8px 8px;
     color: white;
     float: left;
     margin-left: 15px;
 }
-.zhuce{
+
+.zhuce {
     width: 100px;
     height: 58px;
     text-align: center;
@@ -37,7 +40,8 @@
     color: black;
     float: left;
 }
-.guanBi{
+
+.guanBi {
     width: 60px;
     height: 60px;
     font-size: 30px;
@@ -46,15 +50,18 @@
     color: #5e5e5e;
     float: right;
 }
-.guanBi:hover{
+
+.guanBi:hover {
     background-color: red;
 }
-.body{
+
+.body {
     height: 220px;
     width: 650px;
 }
-.youXiang{
-    padding:0px 20px 0px 20px;
+
+.youXiang {
+    padding: 0px 20px 0px 20px;
     box-sizing: border-box;
     width: 620px;
     height: 60px;
@@ -65,17 +72,19 @@
     margin-left: 15px;
     margin-top: 15px;
 }
-.submit{
+
+.submit {
     font-size: 30px;
     color: white;
     width: 650.5px;
     height: 60px;
     border: none;
-    border-radius: 0 0 10px 10px ;
+    border-radius: 0 0 10px 10px;
     background-color: lightblue;
 }
+
 /*###################################################################################*/
-#zc_box{
+#zc_box {
     position: fixed;
     background-color: white;
     width: 650px;
@@ -84,16 +93,18 @@
     left: 50%;
     top: 40%;
     transform: translateX(-50%);
-    box-shadow: darkgray 20px 20px 60px 10px ;
+    box-shadow: darkgray 20px 20px 60px 10px;
     z-index: 10;
     display: none;
 }
-.head_zc{
+
+.head_zc {
     width: 650px;
-    height:60px;
+    height: 60px;
     line-height: 55px;
 }
-.denLu_zc{
+
+.denLu_zc {
     width: 100px;
     height: 58px;
     text-align: center;
@@ -103,18 +114,20 @@
     float: left;
     margin-left: 15px;
 }
-.zhuce_zc{
+
+.zhuce_zc {
     background-color: lightblue;
     width: 100px;
     height: 58px;
-    border-radius: 0 0 8px 8px ;
+    border-radius: 0 0 8px 8px;
     text-align: center;
     line-height: 58px;
     font-size: 30px;
     color: white;
     float: left;
 }
-.guanBi_zc{
+
+.guanBi_zc {
     width: 60px;
     height: 60px;
     font-size: 30px;
@@ -123,16 +136,19 @@
     color: #5e5e5e;
     float: right;
 }
-.guanBi_zc:hover{
+
+.guanBi_zc:hover {
     background-color: red;
 }
-.body_zc{
+
+.body_zc {
     height: 220px;
     width: 640px;
 
 }
-.youXiang_zc{
-    padding:0px 20px 0px 20px;
+
+.youXiang_zc {
+    padding: 0px 20px 0px 20px;
     box-sizing: border-box;
     width: 620px;
     height: 56px;
@@ -143,35 +159,63 @@
     margin-left: 15px;
     margin-top: 11px;
 }
-.submit_zc{
+
+.submit_zc {
     width: 650.5px;
     height: 60px;
     border: none;
     font-size: 30px;
     color: white;
-    border-radius: 0 0 10px 10px ;
+    border-radius: 0 0 10px 10px;
     background-color: lightblue;
 }
-a{
-    text-decoration: none ;
+
+a {
+    text-decoration: none;
 }
+
 /*########################IndexMobile###########################################################*/
-.showjianjie{
+.showjianjie {
     transform: translateY(-940px);
     transition: transform 1000ms ease;
     will-change: transform;
 }
-.loadimg{
+
+.loadimg {
     transform: rotate(3600deg);
     transition: transform 20000ms linear;
     will-change: transform;
 }
-.hoverAnima:hover{
+
+.hoverAnima:hover {
     transform: scale(1.02);
 }
-.backcolor:hover{
+
+.backcolor:hover {
     transform: scale(1.1);
 }
-.gongao2:hover{
+
+.gongao2:hover {
     transform: scale(1.02);
+}
+
+.gongao2 {
+    color: gray;
+    font-family: 楷体;
+    font-size: 30px;
+    margin: auto;
+    margin-top: 20px;
+    width: 88%;
+    background-color: white;
+    border-radius: 5px;
+    height: 160px;
+}
+
+.annImg {
+    overflow: hidden;
+    margin-left: 2%;
+    margin-top: 10px;
+    float: left;
+    width: 27%;
+    height: 140px;
 }

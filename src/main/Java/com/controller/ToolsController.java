@@ -11,4 +11,6 @@ public class ToolsController {
     public String jumpTools(){//跳转到工具页面
         return "tool";
     }
+
+
 }

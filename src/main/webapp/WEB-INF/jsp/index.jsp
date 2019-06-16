@@ -12,17 +12,69 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/denglu.css">
     <script src="${pageContext.request.contextPath}/js/Index.js"></script>
     <script>
-        function loadmore(page){
+        function loadmore(){
+            var page=$("#ggao div").length;
+            page/=15;
             var data={
                 page:page
             }
             $.ajax({ //Jq的ajax方法
                 type: "POST",  //访问的方法
-                dataType: "json", //返回值
+                // dataType: "json", //返回值
                 data:data,
                 url: "/AnnounceController/findAnnounceByPage", //访问的action路径
                 success: function (result){ //如果成功则进入这个函数
-                    alert(result)
+                    obj=eval("("+result+")");
+                    if(obj.msg!=undefined){
+                        alert(obj.msg);
+                        return false;
+                    }
+                    for(var x=0;x<obj.length;x++){
+                    str=" <div class=\"gongao showjianjie\">\n" +
+                        "        <a href=\"/AnnounceController/jumpAnnounceDetails?id="+obj[x].id+"\">\n" +
+                        "                <div class=\"gongao2\">";
+                    if(obj[x].imgSrc.length==0){
+                      str+='<div class="annImg">\n' +
+                          '                        <img width="100%" src="/Img_icon/bgSakura.jpg">\n' +
+                          '                    </div>';
+                    }else{
+                        str+="<div class=\"annImg\" >\n" +
+                            "                            <img width=\"100%\"  src=\""+obj[x].imgSrc+"\">\n" +
+                            "                        </div>";
+                    }
+                    str+="<div style=\"margin-right: 2%;margin-top: 10px;float: right;width: 67%;height: 140px;\">\n" +
+                        "                        <div style=\"width: 100%;height: 100px\">\n" +
+                                               +   obj[x].annName+"\n" +
+                        "                        </div>\n" +
+                        "                        <div style=\"font-size: 20px;margin-top: 20px;width: 100%;height: 20px;opacity: 0.5\">\n" +
+                        "                            <div style=\"float: left\">\n" +
+                        "                                <div style=\"float: left\"><img width=\"20px\" height=\"20px\" src=\"/Img_icon/renIcon.png\">\n" +
+                        "                                </div>\n" +
+                        "                                <div style=\"float: left;color: black;line-height: 20px\">&thinsp;"+obj[x].upUser+"</div>\n" +
+                        "                            </div>\n" +
+                        "                            <div style=\"float: right\">\n" +
+                        "                                <div style=\"float: left \"><img width=\"20px\" height=\"20px\" src=\"/Img_icon/setutime.png\">\n" +
+                        "                                </div>\n" +
+                        "                                <div style=\"float: left;color: black;line-height: 20px\">\n" +
+                        "                                    &thinsp;"+obj[x].upTime+"\n" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                            <div style=\"float: right\">\n" +
+                        "                                <div style=\"float: left\"><img width=\"20px\" height=\"20px\" src=\"/Img_icon/lookIcon.png\">\n" +
+                        "                                </div>\n" +
+                        "                                <div style=\"float: left;color: black;line-height: 20px\">&thinsp;"+obj[x].lookNum+"&#12288;</div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </div>\n" +
+                        "          </a>\n" +
+                        "        </div>";
+                    $("#ggao").append(str);
+                    }
+                    var windowWidth = $(window).width();
+                    if (windowWidth > 1200) {
+                        $(".gongao2").css("width","94%");
+                    }
                 }
             });
         }
@@ -151,17 +203,16 @@
 <%-- 公告 --%>
 <div id="ggao" style="position: relative;margin-top: 950px">
     <c:forEach items="${anns}" var="item">
+        <div class="gongao">
         <a href="/AnnounceController/jumpAnnounceDetails?id=${item.id}">
-            <div class="gongao">
-                <div class="gongao2"
-                     style="color: gray;font-family: 楷体;font-size: 30px;margin: auto;margin-top: 20px;width: 88%;background-color: white;border-radius: 5px;height: 160px">
+                <div class="gongao2">
                     <c:if test="${empty item.imgSrc}">
-                    <div style="overflow: hidden;margin-left: 2%;margin-top: 10px;float: left;width: 27%;height: 140px">
+                    <div class="annImg">
                         <img width="100%" src="/Img_icon/bgSakura.jpg">
                     </div>
                     </c:if>
                     <c:if test="${ not empty item.imgSrc}">
-                        <div style="overflow: hidden;margin-left: 2%;margin-top: 10px;float: left;width: 27%;height: 140px">
+                        <div class="annImg" >
                             <img width="100%"  src="${item.imgSrc}">
                         </div>
                     </c:if>
@@ -185,19 +236,19 @@
                             <div style="float: right">
                                 <div style="float: left"><img width="20px" height="20px" src="/Img_icon/lookIcon.png">
                                 </div>
-                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.lookNum}&#12288</div>
+                                <div style="float: left;color: black;line-height: 20px">&thinsp;${item.lookNum}&#12288;</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </a>
+          </a>
+        </div>
     </c:forEach>
-    <a href="javascript:loadmore('${sessionScope.annPage}')"><div id="loadmore" style="width: 20%;height: 40px;margin: auto;margin-top: 20px;text-align: center;color: white;line-height: 40px;background-color: lightblue">
+</div>
+<a href="javascript:loadmore()">
+    <div id="loadmore" style="width: 20%;height: 40px;margin: auto;margin-top: 20px;text-align: center;color: white;line-height: 40px;background-color: lightblue">
         点击加载更多..
     </div></a>
-</div>
-
 <div style="width: 100%">
     <div style="text-align: center;color: white">
         本网站资源均来自于网络,仅供学校社团内部交流使用,如有侵权,请联系管理员QQ79479334

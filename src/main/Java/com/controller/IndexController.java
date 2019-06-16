@@ -52,7 +52,6 @@ public class IndexController {
         }
         List<Announce> announces=announceService.findAnnounceByPage(1);
        modelAndView.addObject("anns",announces);
-        httpSession.setAttribute("annPage",1);
         modelAndView.setViewName("index");
         return modelAndView;
     }
