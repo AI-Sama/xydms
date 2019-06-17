@@ -77,12 +77,12 @@
       <li>
           密码:&nbsp;<span onclick="changePassword('${user.id}')" style="color: lightblue">修改密码</span>
       </li>
-      <li>
-          学工网账号:&nbsp;<span style="color: lightblue" title="(绑定学工网账号后可以不输入账号密码直接查询素拓分)">绑定</span>
-      </li>
-      <li>
-          教务管理系统账号:&nbsp;<span style="color: lightblue" title="(绑定教务管理系统账号后可以不输入账号密码直接查询课表和成绩)">绑定</span>
-      </li>
+      <%--<li>--%>
+          <%--学工网账号:&nbsp;<span style="color: lightblue" title="(绑定学工网账号后可以不输入账号密码直接查询素拓分)">绑定</span>--%>
+      <%--</li>--%>
+      <%--<li>--%>
+          <%--教务管理系统账号:&nbsp;<span style="color: lightblue" title="(绑定教务管理系统账号后可以不输入账号密码直接查询课表和成绩)">绑定</span>--%>
+      <%--</li>--%>
   </ul>
 </div>
 </body>

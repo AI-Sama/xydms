@@ -146,108 +146,110 @@
 <div onclick="menuYinchang()" id="menu_mobie_right"
      style="z-index: 100;width: 40%;background-color: gray;opacity: 0.2;height: 100%;position: fixed;top: 0px;right: -40%">
 </div>
-<div id="menu_mobile"
-     style="overflow: auto;z-index: 100;position: fixed;top:0px;left:-60%;width: 60%;height: 100%;background-color: white">
+<div id="menu_mobile" style="overflow: auto;z-index: 100;position: fixed;top:0px;left:-60%;width: 60%;height: 100%;background-color: white">
     <div style="font-size: 50px;background-color: lightblue; text-align: center; width: 100%;height: 150px;line-height:150px;color: white">
         个人中心
     </div>
     <c:if test="${sessionScope.user.lv >=1}">
-        <details >
+        <details>
             <summary style="width: 100%;height: 60px;margin: auto; margin-top:10px;background-color:lightblue">
-                    <span style="color: white;font-size: 30px;line-height: 60px">管理员</span>
+                <span style="color: white;font-size: 30px;line-height: 60px">管理员</span>
             </summary>
             <ul>
                 <li>
                     <a href="/WallpaperController/jumpJudgeImg">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">壁纸审核</span></div>
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
+                                style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">壁纸审核</span>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="/ResourceController/jumpJudgeSrc">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">资源审核</span></div>
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
+                                style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">资源审核</span>
+                        </div>
                     </a>
                 </li>
-                <%--<li>--%>
+                    <%--<li>--%>
                     <%--<a href="/Items/PlunStatus">--%>
-                        <%--<div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span--%>
-                                <%--style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">评论审核</span></div>--%>
+                    <%--<div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span--%>
+                    <%--style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">评论审核</span></div>--%>
                     <%--</a>--%>
-                <%--</li>--%>
+                    <%--</li>--%>
                 <li>
                     <a href="/AnnounceController/jumpAnnounce">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px"
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
+                                style="width: 30px;margin-left: 20px"
 
-                                                                                                             src="/Img_icon/gongao.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">公告发布</span></div>
+                                src="/Img_icon/gongao.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">公告发布</span>
+                        </div>
                     </a>
                 </li>
             </ul>
         </details>
-
-
     </c:if>
     <c:if test="${sessionScope.user.lv>=2}">
-        <details >
+        <details>
             <summary style="width: 100%;height: 60px;margin: auto; margin-top:10px;background-color:lightblue">
                 <span style="color: white;font-size: 30px;line-height: 60px">超级管理员</span>
             </summary>
             <ul>
                 <li>
                     <a href="/AnimaController/jumpAnimaManage">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px"
-                                                                                 src="/Img_icon/setutime.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">番剧更新</span></div>
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
+                                style="width: 30px;margin-left: 20px"
+                                src="/Img_icon/setutime.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">番剧更新</span>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="/UserController/jumpPersonManage">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px"
-                                                                                 src="/Img_icon/quanxiangenggai.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">人员管理</span></div>
+                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
+                                style="width: 30px;margin-left: 20px"
+                                src="/Img_icon/quanxiangenggai.png"><span
+                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">人员管理</span>
+                        </div>
                     </a>
                 </li>
             </ul>
         </details>
     </c:if>
-    <div onclick="qdDay()" style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
-                                                                               src="/Img_icon/qd.png"><span
-            style="font-size: 50px;margin-left: 20px; line-height: 100px">签到</span></div>
+    <div onclick="qdDay()" style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px " src="/Img_icon/qd.png">
+        <span style="font-size: 50px;margin-left: 20px; line-height: 100px">签到</span>
+    </div>
     <a href="/UserController/jumpPerson">
-    <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span
-    style="font-size: 50px;margin-left: 20px; line-height: 100px">个人信息</span></div>
+        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span
+                style="font-size: 50px;margin-left: 20px; line-height: 100px">个人信息</span></div>
     </a>
     <%--<a href="/Items/MyScImg">--%>
-        <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
-                <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>--%>
+    <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
+    <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>--%>
     <%--</a>--%>
     <a href="/ResourceController/loadSrc">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
-                                                                 src="/Img_icon/shetuanziyuan.png"><span
-                style="font-size: 50px;margin-left: 20px; line-height: 100px">社团资源</span></div>
+        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/shetuanziyuan.png">
+            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">社团资源</span></div>
     </a>
     <a href="/WallpaperController/jumpUpWallpaper">
         <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
-                                                                 src="/Img_icon/bizshangc.png"><span
-                style="font-size: 50px;margin-left: 20px; line-height: 100px">壁纸上传</span></div>
+                                                                 src="/Img_icon/bizshangc.png">
+            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">壁纸上传</span></div>
     </a>
 
     <a href="/ResourceController/jumpUpSrc">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
-                                                                 src="/Img_icon/ziyuanfabu.png"><span
-                style="font-size: 50px;margin-left: 20px; line-height: 100px">资源上传</span></div>
+        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/bizshangc.png">
+            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">资源上传</span></div>
     </a>
-
 
     <a href="/UserController/signOut">
         <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/tuichu.png">
-            <span
-                    style="font-size: 50px;margin-left: 20px; line-height: 100px">退出登录</span></div>
+            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">退出登录</span></div>
+
     </a>
 </div>
-
-
 <%--看板娘--%>
 <div id="landlord" style="right:10px;bottom:0px;">
     <div class="message" style="opacity:0"></div>

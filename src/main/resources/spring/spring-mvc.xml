@@ -38,8 +38,34 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/UserController/checkIn"/>
+            <mvc:mapping path="/UserController/signOut"/>
+            <mvc:mapping path="/UserController/jumpPerson"/>
             <mvc:mapping path="/WallpaperController/jumpUpWallpaper"/>
+            <mvc:mapping path="/ResourceController/jumpUpSrc"/>
+            <mvc:mapping path="/ResourceController/loadSrc"/>
             <bean id="UserInterceptor" class="com.interceptor.UserInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+           <mvc:mapping path="/AnnounceController/*"></mvc:mapping>
+           <mvc:mapping path="/ResourceController/jumpJudgeSrc"></mvc:mapping>
+           <mvc:mapping path="/ResourceController/setSrcState"></mvc:mapping>
+           <mvc:mapping path="/ResourceController/setAllSrcState"></mvc:mapping>
+           <mvc:mapping path="/ResourceController/deleteSrc"></mvc:mapping>
+           <mvc:mapping path="/WallpaperController/jumpJudgeImg"></mvc:mapping>
+           <mvc:mapping path="/WallpaperController/JudgeImg"></mvc:mapping>
+           <mvc:mapping path="/WallpaperController/JudgeAll"></mvc:mapping>
+           <mvc:mapping path="/WallpaperController/deleteImg"></mvc:mapping>
+            <mvc:exclude-mapping path="/AnnounceController/jumpAnnounceDetails"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/AnnounceController/findAnnounceByPage"></mvc:exclude-mapping>
+            <bean id="AdminInterceptor" class="com.interceptor.AdminInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/AnimaController/*"></mvc:mapping>
+            <mvc:mapping path="/UserController/jumpPersonManage"></mvc:mapping>
+            <mvc:mapping path="/UserController/addManage"></mvc:mapping>
+            <mvc:mapping path="/UserController/deleteManage"></mvc:mapping>
+            <mvc:mapping path="/UserController/resetPassword"></mvc:mapping>
+            <bean id="SuperAdminInterceptor" class="com.interceptor.SuperAdminInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 

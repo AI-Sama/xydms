@@ -20,19 +20,19 @@
 </div>
 <div style="margin-top: 30px;font-family: '楷体'">
     <table style="margin: auto;text-align: center;width: 95%;">
-        <tr style="color: lightpink;height: 40px;background: white;border:lightpink 1px solid; "><td>开课学期</td><td>课程名称</td><td>分数</td><td>学分</td><td>考核方式</td><td>课程属性</td></tr>
-        <c:forEach items="${sessionScope.cji}" var="kemu">
-            <tr style="background: lightpink ">
-                <c:forEach items="${kemu}" var="item">
-                    <td  style="border:white 1px solid;height: 50px;color: white"> ${item}</td>
-                </c:forEach>
+        <tr style="font-size: 30px;color: lightblue;height: 50px;background: white;border:lightblue 1px solid; "><td>编号</td><td>课程名称</td><td>成绩</td></tr>
+        <c:forEach items="${cjs}" var="kemu" varStatus="num">
+            <tr style="font-size: 30px;background: lightblue ">
+                <td  style="width: 10%;border:white 1px solid;height: 60px;color: white"> ${num.index+1}</td>
+                    <td  style="border:white 1px solid;height: 60px;color: white"> ${kemu['mc']}</td>
+                    <td  style="width: 15%;border:white 1px solid;height: 60px;color: white"> ${kemu['cj']}</td>
             </tr>
         </c:forEach>
     </table>
-    <c:if test="${empty sessionScope.cji}">
+    <c:if test="${empty cjs}">
             <script>
-                alert("账号密码错误或成绩暂未公布");
-                window.location.replace("/Items/title_Click?titName=工具");
+                alert("账号或密码错误");
+                window.location.replace("/ToolsController/jumpTools");
             </script>
     </c:if>
 </div>

@@ -88,7 +88,7 @@ public class ResourceController {
     }
     @RequestMapping(value = "/deleteSrc",produces = {"text/html;charset=UTF-8;", "application/json;"})
     @ResponseBody
-    public String  deleteSrc(Integer id){//删除图片
+    public String  deleteSrc(Integer id){//删除资源
         resourceService.deleteSrc(id);
         return "操作成功";
     }

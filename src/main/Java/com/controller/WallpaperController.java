@@ -53,7 +53,7 @@ public class WallpaperController {
 
     @RequestMapping(value = "/upImg", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     public String upImg(@RequestParam(value = "up_file") MultipartFile up_file[], String img_text[], HttpSession httpSession)
-            throws Exception {
+            throws Exception {//图片上传
         User user = (User) httpSession.getAttribute("user");
         for (int x = 0; x < up_file.length; x++) {
             if (!up_file[x].isEmpty()) {

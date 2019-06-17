@@ -6,6 +6,10 @@ function chaxunCJ() {
     $("#form3").css("display","block");
     $("#form2").css("display","block");
 }
+function chaxunKB() {
+    $("#form4").css("display","block");
+    $("#form2").css("display","block");
+}
 
 function tijiao() {
     var name = $("#user").val();
@@ -57,6 +61,8 @@ $(window).load(function () {
         }, 300 * index);
     }
 });
+
+
 function InputCJ() {
     var cla = $("#username").val();
     var num = $("#password").val();
@@ -65,8 +71,21 @@ function InputCJ() {
         return false;
     }
     $("#loadIng").css("display","block");
-    window.location.replace("/Items/selectCj?username=" + cla + "&password=" + num);
+    window.location.replace("/ToolsController/findCJ?userName=" + cla + "&password=" + num);
 }
+function InputKB() {
+    var cla = $("#username2").val();
+    var num = $("#password2").val();
+    if (cla.trim().length <= 0 || num.trim().length <= 0) {
+        alert("账号或密码不能为空");
+        return false;
+    }
+    $("#loadIng").css("display","block");
+    window.location.replace("/ToolsController/findKB?userName=" + cla + "&password=" + num);
+}
+
+
+
 function InputClass() {
     var cla = prompt("请输入班级");
     if (cla == null) {

@@ -133,8 +133,16 @@
     <httpclient.version>4.1.2</httpclient.version>
     <jsoup.version>1.11.3</jsoup.version>
     <thumbnailator.version>0.4.8</thumbnailator.version>
+    <tess4j.version>4.3.0</tess4j.version>
   </properties>
   <dependencies>
+    <!--tess4j-->
+    <dependency>
+      <groupId>net.sourceforge.tess4j</groupId>
+      <artifactId>tess4j</artifactId>
+      <version>${tess4j.version}</version>
+    </dependency>
+
     <!--json-->
     <dependency>
       <groupId>net.sf.json-lib</groupId>
