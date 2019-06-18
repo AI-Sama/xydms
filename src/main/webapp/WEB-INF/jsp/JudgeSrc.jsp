@@ -53,12 +53,21 @@
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
-<a href="javascript:void(0)">
-    <div class="judge" onclick="judgeAll()" style="text-align: center;color:white;border-radius: 5px;
+
+<c:if test="${not empty srcs}">
+    <a href="javascript:void(0)">
+        <div class="judge" onclick="judgeAll()" style="text-align: center;color:white;border-radius: 5px;
             font-size:22px;width: 150px;line-height: 50px;height: 50px;background-color:lightblue;margin: auto;margin-top: 20px">
-        全部通过
+            全部通过
+        </div>
+    </a>
+</c:if>
+<c:if test="${empty srcs}">
+    <div  style="text-align: center;color:white;border-radius: 5px;
+            font-size:22px;width: 300px;line-height: 50px;height: 50px;background-color:lightblue;margin: auto;margin-top: 20px">
+        暂无待审核的资源
     </div>
-</a>
+</c:if>
 <div id="all" class="srcBig">
     <c:forEach items="${srcs}" var="message" varStatus="num">
             <div id="src${num.index}" class="srcSmall">

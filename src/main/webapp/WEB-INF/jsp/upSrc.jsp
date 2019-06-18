@@ -16,21 +16,38 @@
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
-    <form class="upSrcBig" action="/ResourceController/upSrc" method="post" enctype="multipart/form-data">
-    <div class="upSrcTitle">
-        资源标题&nbsp;:&#12288<input style="width: 74.5%;height: 30px" type="text" maxlength="80" name="srcTitle" placeholder="请输入资源标题(最多80个字)">
-    </div>
-    <div class="upSrcText">
-        资源描述:<textarea style="font-size: 20px;width: 91.5% " rows="10" cols="60" name="srcText" placeholder="请输入资源描述,出处等(最多500个字)......"></textarea>
-    </div>
-    <div class="upSrcImg">
-        主图&nbsp;:&#12288<input type="file" accept="image/*" name="srcFile"><br><br>
-        图一&nbsp;:&#12288<input type="file" accept="image/*" name="srcFile"><br><br>
-        图二&nbsp;:&#12288<input type="file" accept="image/*" name="srcFile"><br><br>
-    </div>
-        <div style="width: 100px;margin: auto;margin-bottom: 40px">
-        <input class="submit_src" type="submit" value="提交">
+<div style="width: 91%;height: auto;margin: auto;background-color: white;margin-top: 20px;padding: 20px">
+<form  class="layui-form layui-form-pane" action="/ResourceController/upSrc" method="post" enctype="multipart/form-data">
+    <div class="layui-form-item">
+        <label class="layui-form-label">资源名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="srcTitle" autocomplete="off" placeholder="请输入资源标题" class="layui-input">
         </div>
-    </form>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">资源描述</label>
+        <div class="layui-input-block">
+            <textarea  name="srcText" style="height: 180px" placeholder="请输入资源描述" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">下载链接</label>
+        <div class="layui-input-block">
+            <input type="text" name="srcDownload" autocomplete="off" placeholder="请输入完整下载链接(包含http....)" class="layui-input">
+        </div>
+    </div>
+       <div>
+           <span style="background-color: lightblue;width: 70px;height: 30px;line-height: 30px;" class="layui-badge">主图 :</span>
+           &nbsp;:&#12288;<input type="file" accept="image/*" name="srcFile"><span style="opacity: 0.5">必须选择一张主图,图二图三可以留空</span><br/>
+           <span style="margin-top: 15px;background-color: lightblue;width: 70px;height: 30px;line-height: 30px;" class="layui-badge">图二 :</span>
+           &nbsp;:&#12288;<input type="file" accept="image/*" name="srcFile"><br/>
+           <span style="margin-top: 15px;background-color: lightblue;width: 70px;height: 30px;line-height: 30px;" class="layui-badge">图三 :</span>
+           &nbsp;:&#12288;<input type="file" accept="image/*" name="srcFile">
+        </div>
+    <div style="text-align: center;margin-top: 20px">
+        <input type="submit" style="background-color: lightblue;width: 100px;height: 40px;margin-top: 20px;margin: auto" class="layui-btn layui-btn-normal" value="提交">
+    </div>
+</form>
+</div>
 </body>
 </html>

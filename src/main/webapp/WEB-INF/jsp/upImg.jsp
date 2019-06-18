@@ -19,36 +19,28 @@
     <form  action="/WallpaperController/upImg" enctype="multipart/form-data" method="post">
         <div class="upImg_Big" >
             <br>
-            <div class="sc_biaoti"><strong style="color: brown">图片上传</strong><br>
-            <span class="miaos_css">最多可选择三张图片,如图片有出处请填写出处,没有请留空</span>
+            <div class="sc_biaoti"><strong style="font-size: 30px;color: lightblue">图片上传</strong><br><br>
+            <span class="miaos_css">最多一次可上传三张图片,如图片有出处请填写出处,没有请留空</span>
             </div>
-            <div class="upImg_small">
-                <div class="miaoSu">
-                    图片描述&nbsp;:&#12288<input  class="img_text" name="img_text" type="text" maxlength="25" placeholder="请输入图片的简介(出处,画师ID等)">
-                </div>
-                <div class="miaoSu">
-                    <input class="input_img"   type="file" name="up_file" accept="image/*"/>
-                </div>
+            <div style="padding: 20px;border: solid 1px #f2f2f2;width: 90%;text-align: center;height: 60px;margin: auto;margin-top: 20px;">
+                <span style="background-color: lightblue;width: 70px;height: 50px;line-height: 50px;float: left" class="layui-badge">图片出处 :</span>
+              <input name="img_text" style="margin-left: 5px;float: left;width:60%;height: 50px" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入图片出处" class="layui-input">
+               <input class="input_img"   type="file" name="up_file" accept="image/*"/>
             </div>
-            <div class="upImg_small">
-                <div class="miaoSu">
-                    图片描述&nbsp;:&#12288<input  class="img_text" name="img_text" type="text" maxlength="25" placeholder="请输入图片的简介(出处,画师ID等)">
-                </div>
-                <div class="miaoSu">
-                    <input class="input_img"   type="file" name="up_file" accept="image/*"/>
-                </div>
+            <div style="padding: 20px;border: solid 1px #f2f2f2;width: 90%;text-align: center;height: 60px;margin: auto;margin-top: 20px;">
+                <span style=" background-color: lightblue;width: 70px;height: 50px;line-height: 50px;float: left" class="layui-badge">图片出处 :</span>
+                <input name="img_text" style="margin-left: 5px;float: left;width:60%;height: 50px" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入图片出处" class="layui-input">
+                <input class="input_img"   type="file" name="up_file" accept="image/*"/>
             </div>
-            <div class="upImg_small">
-                <div class="miaoSu">
-                    图片描述&nbsp;:&#12288<input  class="img_text" name="img_text" type="text" maxlength="25" placeholder="请输入图片的简介(出处,画师ID等)">
-                </div>
-                <div class="miaoSu">
-                    <input class="input_img"   type="file" name="up_file" accept="image/*"/>
-                </div>
-
+            <div style="padding: 20px;border: solid 1px #f2f2f2;width: 90%;text-align: center;height: 60px;margin: auto;margin-top: 20px;">
+                <span style="background-color: lightblue;width: 70px;height: 50px;line-height: 50px;float: left" class="layui-badge">图片出处 :</span>
+                <input name="img_text" style="margin-left: 5px;float: left;width:60%;height: 50px" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入图片出处" class="layui-input">
+                <input class="input_img"   type="file" name="up_file" accept="image/*"/>
+            </div>
+            <div style="text-align: center;margin-top: 20px">
+            <input type="submit" style="background-color: lightblue;width: 100px;height: 40px;margin-top: 20px;margin: auto" class="layui-btn layui-btn-normal" value="提交">
             </div>
         </div>
-        <input type="submit" class="up_button" value="提交">
     </form>
 </body>
 </html>

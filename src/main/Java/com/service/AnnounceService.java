@@ -30,7 +30,7 @@ public class AnnounceService {
         announceMapper.insertAnn(ann);
     }
     public List<Announce> findAnnounceByPage(Integer page){//根据页数查找公告
-        int num=page==1?0:(page-1)*4;
+        int num=page==1?0:(page-1)*5;
         List<Announce> announces=announceMapper.findAnnounceByPage(num);
         return announces;
     }

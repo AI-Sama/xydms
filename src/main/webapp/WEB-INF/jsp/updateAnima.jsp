@@ -23,6 +23,9 @@
         }
         function deleteAnima() {
            var animaName= prompt("请输入要删除的动画名称:");
+           if(!animaName){
+               return false;
+           }
            var data={
                animaName:animaName
            }
@@ -62,43 +65,48 @@
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
-<div style="width: 90%;padding: 20px;margin: auto;font-size: 20px;margin-top: 20px;background-color: white">
-    <div style="width: 80%;margin: auto;margin-top: 50px;margin-bottom:50px;border: 2px lightblue solid">
-    <div style="margin: auto;;margin-top:10px;width: 100%;height: 50px;font-size: 20px;line-height: 50px;text-align: center">
-        <span style="display: block;float: left;width: 40%">请选择动画更新日期:</span>
-        <select id="weekDay" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
-        <option value="周一">星期一</option>
-        <option value="周二">星期二</option>
-        <option value="周三">星期三</option>
-        <option value="周四">星期四</option>
-        <option value="周五">星期五</option>
-        <option value="周六">星期六</option>
-        <option value="周日">星期日</option>
-    </select>
-    </div>
-    <div style="text-align: center;margin: auto;width: 100%;height: 50px;font-size: 20px;line-height: 50px">
-        <span style="display: block;float: left;width: 40%">请输入动画名称:</span>
-        <input id="animaName" type="text" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
-    </div>
-    <div style="text-align: center;margin: auto;width: 100%;height: 50px;font-size: 20px;line-height: 50px">
-        <span style="display: block;float: left;width: 40%">请输入动画链接:</span>
-        <input id="animaHref" type="text" style="float: left;font-size: 20px;width:55%;height: 30px;margin-top: 10px">
-    </div>
-        <div style="text-align: center;margin: auto;margin-top: 20px;margin-bottom: 20px;width: 95%;height: 50px;font-size: 25px;line-height: 50px">
-
-          <a href="javascript:void(0)">
-              <div style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px"
-                 onclick="updateAnima()" style="width: 100px">提交
+<div style="width: 90%;padding: 20px;margin: auto;font-size: 10px;margin-top: 20px;background-color: white">
+    <form class="layui-form layui-form-pane" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">番剧名称</label>
+            <div class="layui-input-block">
+                <input id="animaName" type="text" name="title" autocomplete="off" placeholder="请输入番剧名称" class="layui-input">
             </div>
-            <div onclick="deleteAnima()" style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px">
-                删除一条番剧
-            </div>
-            <div onclick="dropAnimas()" style="margin-left: 1%;float: left;width: 32.3%;height: 100%;background-color: lightblue;color: white;line-height: 50px;font-size: 20px">
-                删除全部番剧
-            </div>
-          </a>
         </div>
-    </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">番剧链接</label>
+            <div class="layui-input-block">
+                <input id="animaHref"  type="text" name="title" autocomplete="off" placeholder="请输入番剧链接" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">更新日期</label>
+            <div class="layui-input-inline">
+                <select id="weekDay" name="quiz1">
+                    <option value="周一" selected="">星期一</option>
+                    <option value="周二">星期二</option>
+                    <option value="周三">星期三</option>
+                    <option value="周四">星期四</option>
+                    <option value="周五">星期五</option>
+                    <option value="周六">星期六</option>
+                    <option value="周日">星期日</option>
+                </select>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <button type="button" style="width: 100px;background-color: lightblue;" onclick="updateAnima()" class="layui-btn layui-btn-normal">提交</button>
+            <button type="button" style="width: 150px;background-color: lightblue;" onclick="deleteAnima()" class="layui-btn layui-btn-normal">删除一条番剧</button>
+            <button type="button" style="width: 150px;background-color: lightblue;" onclick="dropAnimas()" class="layui-btn layui-btn-normal">删除全部番剧</button>
+        </div>
+    </form>
 </div>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+    });
+</script>
 </body>
 </html>

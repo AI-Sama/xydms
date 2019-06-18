@@ -91,9 +91,9 @@
             </tr>
         </table>
     </div>
-    <hr style="border: 1px #ff8a00 solid;">
-    <div class="bigSrc_text">
-        ${bigSrcMess.srcText}
+    <hr style="background-color: lightblue;height: 2px">
+    <div class="bigSrc_text ">
+                ${bigSrcMess.srcText}
     </div>
     <br>
     <c:if test="${not empty bigSrcMess.srcImg01}">
@@ -107,16 +107,14 @@
     <c:if test="${not empty bigSrcMess.srcImg03}">
         <div class="img_kuang"><img class="src_img" src="/srcImg/${bigSrcMess.srcImg03}"></div>
     </c:if>
-    <div class="back_css" onclick="window.history.go(-1)">
-        <img class="back_img" src="/Img_icon/back.png">
+    <div style="text-align: center">
+        <button style="width: 100px;background-color: lightblue;" type="button" onclick="window.history.go(-1)" class="layui-btn layui-btn-normal">返回</button>
+        <a href="${bigSrcMess.srcDownload}"><button style="width: 100px;background-color: lightblue;" type="button"  class="layui-btn layui-btn-normal">下载</button></a>
+        <c:if test="${sessionScope.user.lv>=1}">
+            <button style="width: 100px;background-color: lightblue;" type="button" onclick="deleteZY('${bigSrcMess.id}')" class="layui-btn layui-btn-normal">删除</button>
+        </c:if>
     </div>
-    <c:if test="${sessionScope.user.lv>=1}">
-        <div class="back_css"  onclick="deleteZY('${bigSrcMess.id}')">
-            <img class="back_img"  src="/Img_icon/delete.png">
-        </div>
-    </c:if>
 </div>
-
 <%--<div style="width: 95%;height: 200px;margin: auto">--%>
     <%--<textarea id="plun" style="resize: none;border-radius: 5px;font-size: 20px;width: 100%;height: 200px"--%>
               <%--placeholder="说点什么吧......"></textarea>--%>
@@ -147,7 +145,5 @@
         <%--</div>--%>
     <%--</div>--%>
 <%--</c:forEach>--%>
-
-
 </body>
 </html>

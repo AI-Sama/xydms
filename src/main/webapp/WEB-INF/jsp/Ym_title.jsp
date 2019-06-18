@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/denglu.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/YmTitle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/Live2dRem-master/live2d/css/live2d.css"/>
+<script src="/layui-v2.5.4/layui/layui.js"></script>
+<link rel="stylesheet" href="/layui-v2.5.4/layui/css/layui.css">
 <script src="${pageContext.request.contextPath}/js/indexSakula.js"></script>
 <!--登录弹窗-->
 <div id="backImg"></div>
@@ -38,7 +40,7 @@
                    placeholder="&#12288✉&nbsp;您的用户名或邮箱">
             <input value="${sessionScope.password}" class="youXiang" type="password" name="password"
                    placeholder="&#12288🗝&nbsp;您的密码">
-            <div style="opacity: 0.7;width: 620px;height: 60px;border-radius: 10px; font-size: 30px; margin-left: 20px;
+            <div style="opacity: 0.7;width: 620px;height: 60px; font-size: 30px; margin-left: 20px;
             margin-top: 15px;">
                 <c:if test="${not empty sessionScope.userName}">
                     <input checked name="rememberPass"
@@ -90,12 +92,16 @@
 <%--头部--%>
 <div class="head_mobile">
     <c:if test="${ not empty sessionScope.user}">
-        <img onclick="menuTanchu()" style="width:60px; margin-top:20px;margin-left:2%;float: left;"
-             src="/Img_icon/menu.png">
+        <div style="float: left;text-align: left;margin-left: 20px">
+            <i style="font-size: 70px;line-height: 100px;color: lightblue" onclick="menuTanchu()"
+               class="layui-icon layui-icon-spread-left"></i>
+        </div>
     </c:if>
     <c:if test="${empty sessionScope.user}">
-        <img onclick="alert('请先登录');tc()" style="width:60px; margin-top:20px;margin-left:20px;float: left;"
-             src="/Img_icon/menu.png">
+        <div style="float: left;text-align: left;margin-left: 20px">
+            <i style="font-size: 70px;line-height: 100px;color: lightblue" onclick="alert('请先登录');tc()"
+               class="layui-icon layui-icon-spread-left"></i>
+        </div>
     </c:if>
     <img style="position:absolute;height: 70px;margin-top: 15px;left: 50%;transform: translateX(-50%)"
          src="/Img_icon/xy2.png">
@@ -113,142 +119,104 @@
 <%--头部--%>
 
 <!--标题-->
-<div style="position: relative;z-index: 10;width: 96%;height: 120px;margin: auto;margin-top: 20px;border-radius: 8px; background-color: lightblue">
-    <a href="/IndexController/jumpIndex">
-        <div class="title_mobile">首页</div>
-    </a>
-    <div class="title_mobile" onclick="alert('该功能正在开发中')">活动</div>
-    <div id="showBizhi" class="title_mobile" onmouseout="selectBz_hide()" onclick="selectBz_show()">壁纸</div>
-    <a href="/ToolsController/jumpTools">
-        <div id="gjMess" class="title_mobile">工具</div>
-    </a>
-</div>
-<div id="select_bz"
-     style="position: relative;z-index: 5;color: white;position: absolute;left: 50%;top: 139px;width: 23%;height: 100px;background-color: lightblue">
-    <a href="/WallpaperController/jumpWallpaper?type=0">
-        <div style="color: white;text-align: center;font-size: 30px;width: 100%;height: 99px;line-height: 99px">
-            热门壁纸
-        </div>
-    </a>
-</div>
-<div id="select_bz_two"
-     style="position: relative;z-index: 5;border-radius: 0 0 10px 10px;color: white;position: absolute;left: 50%;top: 139px;width: 23%;height: 100px;background-color: lightblue">
-    <a href="/WallpaperController/jumpWallpaper?type=1">
-        <div style="color: white;text-align: center;font-size: 30px;width: 100%;height: 99px;line-height: 99px">
-            最新壁纸
-        </div>
-    </a>
+<div style="width: 96%;margin: auto;margin-top: 20px">
+    <ul style="background-color: lightblue;text-align: center;height: 120px;" class="layui-nav">
+        <li style="height: 120px;width: 25%" class="layui-nav-item layui-this"><a
+                style="font-size: 50px;line-height: 120px" href="/IndexController/jumpIndex">首页</a></li>
+        <li style="height: 120px;width: 25%" class="layui-nav-item"><a style="font-size: 50px;line-height: 120px"
+                                                                       href="javascript:alert('该功能正在开发中')">活动</a></li>
+        <li style="height: 120px;width: 25%" class="layui-nav-item">
+            <a style="font-size: 50px;line-height: 120px" href="javascript:;">壁纸</a>
+            <dl class="layui-nav-child" style="top: 120px;line-height: 60px">
+                <dd><a style="font-size: 25px" href="/WallpaperController/jumpWallpaper?type=0">热门壁纸</a></dd>
+                <dd><a style="font-size: 25px" href="/WallpaperController/jumpWallpaper?type=1">最新壁纸</a></dd>
+            </dl>
+        </li>
+        <li style="height: 120px;width: 25%" class="layui-nav-item"><a style="font-size: 50px;line-height: 120px"
+                                                                       href="/ToolsController/jumpTools">工具</a></li>
+    </ul>
 </div>
 <!--标题-->
 
-
 <!--个人中心-->
 <div onclick="menuYinchang()" id="menu_mobie_right"
-     style="z-index: 100;width: 40%;background-color: gray;opacity: 0.2;height: 100%;position: fixed;top: 0px;right: -40%">
+     style="z-index: 100;width: 55%;background-color: gray;opacity: 0.2;height: 100%;position: fixed;top: 0px;right: -55%">
 </div>
-<div id="menu_mobile" style="overflow: auto;z-index: 100;position: fixed;top:0px;left:-60%;width: 60%;height: 100%;background-color: white">
+<div id="menu_mobile"
+     style="overflow: auto;z-index: 100;position: fixed;top:0px;left:-45%;width: 45%;height: 100%;background-color: lightblue">
     <div style="font-size: 50px;background-color: lightblue; text-align: center; width: 100%;height: 150px;line-height:150px;color: white">
         个人中心
     </div>
-    <c:if test="${sessionScope.user.lv >=1}">
-        <details>
-            <summary style="width: 100%;height: 60px;margin: auto; margin-top:10px;background-color:lightblue">
-                <span style="color: white;font-size: 30px;line-height: 60px">管理员</span>
-            </summary>
-            <ul>
-                <li>
-                    <a href="/WallpaperController/jumpJudgeImg">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
-                                style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">壁纸审核</span>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ResourceController/jumpJudgeSrc">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
-                                style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">资源审核</span>
-                        </div>
-                    </a>
-                </li>
-                    <%--<li>--%>
-                    <%--<a href="/Items/PlunStatus">--%>
-                    <%--<div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img style="width: 30px;margin-left: 20px" src="/Img_icon/plsh.png"><span--%>
-                    <%--style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">评论审核</span></div>--%>
-                    <%--</a>--%>
-                    <%--</li>--%>
-                <li>
-                    <a href="/AnnounceController/jumpAnnounce">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
-                                style="width: 30px;margin-left: 20px"
-
-                                src="/Img_icon/gongao.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">公告发布</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </details>
+    <div style="width: 100%;height: 3px;background-color: white"></div>
+    <ul  style="width: 100%;background-color: lightblue" class="layui-nav layui-nav-tree  layui-inline" lay-filter="demo">
+    <c:if test="${sessionScope.user.lv >=2}">
+        <li class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="javascript:;">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-friends"></i>&nbsp;
+                超级管理员
+            </a>
+            <dl class="layui-nav-child">
+                <dd><a style="height: 70px;font-size: 28px;line-height: 70px" href="/AnimaController/jumpAnimaManage">
+                    <i style="font-size: 28px;line-height: 70px" class="layui-icon layui-icon-refresh"></i>&nbsp;&nbsp;&nbsp;
+                    番剧更新</a></dd>
+                <dd><a style="height: 70px;font-size: 28px;line-height: 70px" href="/UserController/jumpPersonManage">
+                    <i style="font-size: 28px;line-height: 70px" class="layui-icon layui-icon-group"></i>&nbsp;
+                    人员管理</a></dd>
+            </dl>
+        </li>
     </c:if>
-    <c:if test="${sessionScope.user.lv>=2}">
-        <details>
-            <summary style="width: 100%;height: 60px;margin: auto; margin-top:10px;background-color:lightblue">
-                <span style="color: white;font-size: 30px;line-height: 60px">超级管理员</span>
-            </summary>
-            <ul>
-                <li>
-                    <a href="/AnimaController/jumpAnimaManage">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
-                                style="width: 30px;margin-left: 20px"
-                                src="/Img_icon/setutime.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">番剧更新</span>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/UserController/jumpPersonManage">
-                        <div style="background-color: lightpink;width: 100%;height: 80px;margin: auto;"><img
-                                style="width: 30px;margin-left: 20px"
-                                src="/Img_icon/quanxiangenggai.png"><span
-                                style="color: white;font-size: 30px;margin-left: 20px; line-height: 80px">人员管理</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </details>
-    </c:if>
-    <div onclick="qdDay()" style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px " src="/Img_icon/qd.png">
-        <span style="font-size: 50px;margin-left: 20px; line-height: 100px">签到</span>
-    </div>
-    <a href="/UserController/jumpPerson">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span
-                style="font-size: 50px;margin-left: 20px; line-height: 100px">个人信息</span></div>
-    </a>
-    <%--<a href="/Items/MyScImg">--%>
-    <%--<div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/sc.png"><span--%>
-    <%--style="font-size: 50px;margin-left: 20px; line-height: 100px">我的收藏</span></div>--%>
-    <%--</a>--%>
-    <a href="/ResourceController/loadSrc">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/shetuanziyuan.png">
-            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">社团资源</span></div>
-    </a>
-    <a href="/WallpaperController/jumpUpWallpaper">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px"
-                                                                 src="/Img_icon/bizshangc.png">
-            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">壁纸上传</span></div>
-    </a>
+<c:if test="${sessionScope.user.lv>=1}">
+        <li class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="javascript:;">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-friends"></i>&nbsp;
+                管理员</a>
+            <dl class="layui-nav-child">
+                <dd><a style="height: 70px;font-size: 28px;line-height: 70px" href="/WallpaperController/jumpJudgeImg">
+                    <i style="font-size: 28px;line-height: 70px" class="layui-icon layui-icon-picture"></i>&nbsp;
+                    壁纸审核</a></dd>
+                <dd><a style="height: 70px;font-size: 28px;line-height: 70px" href="/ResourceController/jumpJudgeSrc">
+                    <i style="font-size: 28px;line-height: 70px" class="layui-icon layui-icon-file-b"></i>&nbsp;
+                    资源审核</a></dd>
+                <dd><a style="height: 70px;font-size: 28px;line-height: 70px" href="/AnnounceController/jumpAnnounce">
+                    <i style="font-size: 28px;line-height: 70px" class="layui-icon layui-icon-notice"></i>&nbsp;
+                    公告发布</a></dd>
+            </dl>
+        </li>
+</c:if>
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item"><a
+                style="height: 100px;font-size: 40px;line-height: 100px;" href="javascript:qdDay()"> <i
+                style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-flag"></i>&nbsp;&nbsp;签到</a></li>
 
-    <a href="/ResourceController/jumpUpSrc">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/bizshangc.png">
-            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">资源上传</span></div>
-    </a>
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/UserController/jumpPerson">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-username"></i>&nbsp;
+                个人信息
+            </a></li>
 
-    <a href="/UserController/signOut">
-        <div style="width: 85%;height: 100px;margin: auto;"><img style="width: 40px" src="/Img_icon/tuichu.png">
-            <span style="font-size: 50px;margin-left: 20px; line-height: 100px">退出登录</span></div>
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/ResourceController/loadSrc">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-file-b"></i>&nbsp;
+                社团资源
+            </a></li>
 
-    </a>
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/WallpaperController/jumpUpWallpaper">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-picture"></i>&nbsp;
+                壁纸上传
+            </a></li>
+
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/ResourceController/jumpUpSrc">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-upload"></i>&nbsp;
+                资源上传
+            </a></li>
+
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/UserController/signOut">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-close"></i>&nbsp;
+                退出登录
+            </a></li>
+    </ul>
 </div>
 <%--看板娘--%>
 <div id="landlord" style="right:10px;bottom:0px;">
@@ -296,6 +264,19 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/Live2dRem-master/live2d/js/live2d.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/Live2dRem-master/live2d/js/message.js"></script>
 <%--看板娘--%>
+
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+
 
 
 

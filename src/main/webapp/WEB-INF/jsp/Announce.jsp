@@ -10,6 +10,8 @@
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <link href="${pageContext.request.contextPath}/dist/summernote-lite.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/dist/summernote-lite.js"></script>
+    <script src="/layui-v2.5.4/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui-v2.5.4/layui/css/layui.css">
     <script  src="/dist/lang/summernote-zh-CN.js"></script>
     <script>
             function subGongao() {
@@ -41,9 +43,15 @@
 <div style="z-index: 1000;position: absolute;top: 2%;width: 850px;left: 50%;transform: translateX(-50%)">
     <input id="typebti" type="text" style="margin-bottom:10px;width: 847px;height: 40px" placeholder="&#12288请输入标题">
     <div id="summernote" ></div>
-   <a style="text-decoration: none" href="javascript:subGongao()"> <div  style="text-align: center;line-height: 30px;font-size: 18px;color: white;margin: auto;margin-top: 10px;margin-bottom: 10px;width: 200px;height: 30px;background: lightpink">
-            提交
-    </div></a>
+
+    <div style="text-align: center">
+    <button  type="button" style="background-color: lightpink;height: 40px;width: 100px" onclick="subGongao()" class="layui-btn layui-btn-normal">提交</button>
+    </div>
+   <%--<a style="text-decoration: none" href="javascript:subGongao()">--%>
+       <%--<div  style="text-align: center;line-height: 30px;font-size: 18px;color: white;margin: auto;margin-top: 10px;margin-bottom: 10px;width: 200px;height: 30px;background: lightpink">--%>
+            <%--提交--%>
+    <%--</div>--%>
+   <%--</a>--%>
 </div>
 <script>
     $('#summernote').summernote({

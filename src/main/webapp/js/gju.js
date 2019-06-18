@@ -53,6 +53,7 @@ $(window).load(function () {
         $("#form1").css("display","none");
         $("#form2").css("display","none");
         $("#form3").css("display","none");
+        $("#form4").css("display","none");
     });
     for (let index = 0; index < $(".gju").length; index++) {
         setTimeout(function () {

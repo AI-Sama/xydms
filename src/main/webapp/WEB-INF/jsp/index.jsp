@@ -10,6 +10,8 @@
     <title>雪渊动漫社</title>
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/denglu.css">
+    <script src="/layui-v2.5.4/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui-v2.5.4/layui/css/layui.css">
     <script src="${pageContext.request.contextPath}/js/Index.js"></script>
     <script>
         function loadmore(){
@@ -91,37 +93,26 @@
 </div>
 
 <jsp:include page="Ym_title.jsp"></jsp:include>
-
 <div id="jianjie" style="position: relative;top: 930px;margin-top: 30px;width: 100%;height: 500px; text-align: center">
-   <img id="welcomeXy" style="width: 95%;height: 100%;border-radius: 8px" src="/Img_icon/jianjie.jpg">
+<div class="layui-carousel" id="test10" style="margin: auto">
+    <div carousel-item="">
+        <div><img style="width: 100%;height: 100%" src="/Img_icon/jianjie.jpg"></div>
+        <div><img style="width: 100%;height: 100%"  src="/Img_icon/jianjie2.jpg"></div>
+        <div><img style="width: 100%;height: 100%"  src="/Img_icon/jainjie3.jpg"></div>
+    </div>
+</div>
 </div>
 <div id="neirong"
      style="position: relative;top: 930px;color: white;background-color:lightblue;width:88%;margin: auto;margin-top: 20px;height: auto;border-radius: 10px">
-    <div style="width: 100%;height: 90px;">
-        <div id="week1" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周一
-        </div>
-        <div id="week2" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周二
-        </div>
-        <div id="week3" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周三
-        </div>
-        <div id="week4" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周四
-        </div>
-        <div id="week5" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周五
-        </div>
-        <div id="week6" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.2%;float: left;height: 100%;line-height: 90px">周六
-        </div>
-        <div id="week7" class="backcolor"
-             style="text-align: center;font-size: 30px;width: 14.5%;float: left;height: 100%;line-height: 90px">周日
-        </div>
-    </div>
-    <hr style="width: 100%;height: 5px;border: none;background-color: white">
-
+    <ul style="background-color: lightblue;text-align: center;height: 100px;" class="layui-nav">
+        <li id="week1" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周一</a></li>
+        <li id="week2" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周二</a></li>
+        <li id="week3" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周三</a></li>
+        <li id="week4" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周四</a></li>
+        <li id="week5" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周五</a></li>
+        <li id="week6" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周六</a></li>
+        <li id="week7" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周日</a></li>
+    </ul>
     <div id="zhou1" style="display: none">
         <c:forEach items="${sessionScope.animaList.week1}" var="zhou1">
             <a href="${zhou1.animaAddr}">
@@ -201,6 +192,7 @@
     </div>
 </div>
 <%-- 公告 --%>
+
 <div id="ggao" style="position: relative;margin-top: 950px">
     <c:forEach items="${anns}" var="item">
         <div class="gongao">
@@ -245,14 +237,84 @@
         </div>
     </c:forEach>
 </div>
-<a href="javascript:loadmore()">
-    <div id="loadmore" style="width: 20%;height: 40px;margin: auto;margin-top: 20px;text-align: center;color: white;line-height: 40px;background-color: lightblue">
-        点击加载更多..
-    </div></a>
+<div id="loadmore" style="text-align: center;margin-top: 20px">
+    <button style="background-color: lightblue"  type="button" onclick="loadmore()" class="layui-btn layui-btn-normal">点击加载更多</button>
+</div>
 <div style="width: 100%">
     <div style="text-align: center;color: white">
         本网站资源均来自于网络,仅供学校社团内部交流使用,如有侵权,请联系管理员QQ79479334
     </div>
 </div>
+<script>
+    layui.use(['carousel', 'form'], function(){
+        var carousel = layui.carousel
+            ,form = layui.form;
+
+        //常规轮播
+        carousel.render({
+            elem: '#test1'
+            ,arrow: 'always'
+        });
+
+        //改变下时间间隔、动画类型、高度
+        carousel.render({
+            elem: '#test2'
+            ,interval: 1800
+            ,anim: 'fade'
+            ,height: '120px'
+        });
+
+        //设定各种参数
+        var ins3 = carousel.render({
+            elem: '#test3'
+        });
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            ,width: '94%'
+            ,height: '100%'
+            ,interval: 5000
+        });
+
+        //事件
+        carousel.on('change(test4)', function(res){
+            console.log(res)
+        });
+
+        var $ = layui.$, active = {
+            set: function(othis){
+                var THIS = 'layui-bg-normal'
+                    ,key = othis.data('key')
+                    ,options = {};
+
+                othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                options[key] = othis.data('value');
+                ins3.reload(options);
+            }
+        };
+
+        //监听开关
+        form.on('switch(autoplay)', function(){
+            ins3.reload({
+                autoplay: this.checked
+            });
+        });
+
+        $('.demoSet').on('keyup', function(){
+            var value = this.value
+                ,options = {};
+            if(!/^\d+$/.test(value)) return;
+
+            options[this.name] = value;
+            ins3.reload(options);
+        });
+
+        //其它示例
+        $('.demoTest .layui-btn').on('click', function(){
+            var othis = $(this), type = othis.data('type');
+            active[type] ? active[type].call(this, othis) : '';
+        });
+    });
+</script>
 </body>
 </html>

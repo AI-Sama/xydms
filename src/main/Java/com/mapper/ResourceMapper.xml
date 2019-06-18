@@ -6,6 +6,7 @@
         <result column="srcTitle" property="srcTitle" jdbcType="VARCHAR"/>
         <result column="srcText" property="srcText" jdbcType="VARCHAR"/>
         <result column="upUser" property="upUser" jdbcType="VARCHAR"/>
+        <result column="srcDownload" property="srcDownload" jdbcType="VARCHAR"/>
         <result column="lookNum" property="lookNum" jdbcType="INTEGER"/>
         <result column="upTime" property="upTime"/>
         <result column="srcState" property="srcState" jdbcType="INTEGER"/>
@@ -20,8 +21,8 @@
     select * from resource where id=#{id} and srcState!=2
   </select>
     <insert id="insertSrc" parameterType="com.pojo.Resource">
-     insert into resource(srcTitle,srcText,upUser,srcImg01,srcImg02,srcImg03)
-    value(#{srcTitle},#{srcText},#{upUser},#{srcImg01},#{srcImg02},#{srcImg03})
+     insert into resource(srcTitle,srcText,upUser,srcDownload,srcImg01,srcImg02,srcImg03)
+    value(#{srcTitle},#{srcText},#{upUser},#{srcDownload},#{srcImg01},#{srcImg02},#{srcImg03})
     </insert>
     <select id="selectAllSrc" resultMap="resourceResultMap">
        select id,srcTitle,upUser,srcImg01 from resource where srcState=1 order by id desc limit #{num},6;

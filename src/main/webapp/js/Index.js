@@ -132,10 +132,7 @@ $(document).ready(function () {
     $("#loadimg").addClass("loadimg");
     for(let x=1;x<=7;x++){
         $("#week"+x).bind("click",function () {
-            $(".backcolor").css("background-color","lightblue");
-            $(".backcolor").css("color","white");
-            $(this).css("background-color","white");
-            $(this).css("color","lightpink");
+            $(this).addClass("layui-this");
             for(let y=1;y<=7;y++){
                 if(y==x){
                     continue;
@@ -150,7 +147,5 @@ $(document).ready(function () {
     if(week==0){
         week=7;
     }
-    $("#week"+week).css("background-color","white");
-    $("#week"+week).css("color","lightpink");
-    $("#zhou"+week).css("display","block");
+    $("#week"+week).addClass("layui-this");
 });

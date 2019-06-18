@@ -10,33 +10,22 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/BigImg_css_mobile.css">
     <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
     <script src="${pageContext.request.contextPath}/js/img.js"></script>
+    <script src="/layui-v2.5.4/layui/layui.js"></script>
+    <link rel="stylesheet" href="/layui-v2.5.4/layui/css/layui.css">
 </head>
 <body style="width: 100%;height: 100%;overflow-x: hidden">
 <div style="position: relative;overflow: auto;width: 90%;max-height:90%;margin: auto;text-align: center">
     <img style="min-width: 50%;max-width: 100%" src="/bigImg/${img.imgAddr}">
 </div>
-<table class="upName">
-    <tr>
-        <th><img style="height: 18px;width: 18px;" src="/Img_icon/lookIcon.png"></th>
-        <td> ${img.clickNum}</td>
-        <td>&nbsp;&nbsp;</td>
-        <th><img style="height: 18px;width: 18px" src="/Img_icon/renIcon.png"></th>
-        <td>${img.upUser}</td>
-        <td>&nbsp;&nbsp;</td>
-        <th><img style="font-size: 15px;height: 18px;width: 18px;" src="/Img_icon/wenjian.png"></th>
-        <td> ${img.imgMsg}</td>
-    </tr>
-</table>
-<div style="width: 20%;height: 50px;margin: 0 auto;">
-    <div  style="position: relative;float: left;left: 50%;margin-left: -70px;border-radius: 50%;width: 50px;height: 50px;background-color: black;border:2px solid black">
-        <img class="buttons" style="border-radius: 50%;width: 100%" src="${pageContext.request.contextPath}/Img_icon/back.png" title="返回"
-             onclick="window.history.go(-1)">
-    </div>
-    <c:if test="${sessionScope.user.lv>=0}">
-    <div  style="position: relative;float: left;left: 50%;border-radius: 50%;width: 50px;height: 50px;background-color: black;border:2px solid black">
-        <img class="buttons" style="border-radius: 50%;width: 100%" src="${pageContext.request.contextPath}/Img_icon/delete.png" title="删除"
-             onclick="deleteImg('${img.id}')">
-    </div>
+<div style="text-align: center;margin-top: 10px">
+    <span  class="layui-badge-rim">观看数:${img.clickNum}</span>
+    <span  class="layui-badge-rim">上传人:${img.upUser}</span>
+    <span  class="layui-badge-rim">图片出处:${img.imgMsg}</span>
+</div>
+<div style="text-align: center;margin-top: 10px">
+    <button type="button" style="background-color: lightblue;"  onclick="window.history.go(-1)" class="layui-btn layui-btn-normal">返回</button>
+    <c:if test="${sessionScope.user.lv>0}">
+        <button style="background-color: lightblue;" type="button" onclick="deleteImg('${img.id}')" class="layui-btn layui-btn-normal">删除</button>
     </c:if>
 </div>
 <%--<div class="anjian_css">--%>

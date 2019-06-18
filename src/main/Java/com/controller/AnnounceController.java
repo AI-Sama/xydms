@@ -94,7 +94,7 @@ public class AnnounceController {
     @RequestMapping(value = "/findAnnounceByPage", produces = {"text/html;charset=utf-8;","application/json;"})//配置方法url路径
     @ResponseBody
     public String  findAnnounceByPage(Integer page,HttpSession httpSession){//根据页数查找公告
-        page=page%4==0?page/4:page/4+1;
+        page=page%5==0?page/5:page/5+1;
         page+=1;
        List<Announce> anns= announceService.findAnnounceByPage(page);
        if(anns.size()<=0){

@@ -76,45 +76,75 @@
 </script>
 <body>
 <jsp:include page="Ym_title.jsp"></jsp:include>
-<table style="margin: auto;margin-top: 20px;text-align: center;width: 95%;">
-    <tr>
-        <td>ID</td>
-        <td>用户名</td>
-        <td>邮箱</td>
-        <td>权限</td>
-        <td>等级</td>
-        <td>操作</td>
-    </tr>
-    <c:forEach items="${sessionScope.users}" var="user">
+<div class="layui-form" style="width: 94%;text-align: center;margin: auto">
+    <table class="layui-table" style="text-align: center">
+        <colgroup>
+            <col width="60">
+            <col width="150">
+            <col width="350">
+            <col width="150">
+            <col width="80">
+            <col width="300">
+        </colgroup>
+        <thead>
         <tr>
-            <td>${user.id}</td>
-            <td>${user.userName}</td>
-            <td>${user.email}</td>
-            <c:if test="${user.lv==0}">
-                <td>社员</td>
-            </c:if>
-            <c:if test="${user.lv==1}">
-                <td>管理员</td>
-            </c:if>
-            <c:if test="${user.lv>=2}">
-                <td>超级管理员</td>
-            </c:if>
-            <td>Lv.${user.userLv}</td>
-            <c:if test="${user.lv==0}">
-                <td><a href="#" onclick="addManage('${user.id}')" style="color:red;">设为管理员</a>&nbsp;|&nbsp;<a href="#"
-                                                                                                              onclick="resetPassword('${user.id}')"
-                                                                                                              style="color:red;">重置密码</a>
-                </td>
-            </c:if>
-            <c:if test="${user.lv==1}">
-                <td><a href="#" onclick="deleteManage('${user.id}')" style="color:red;">取消管理员</a>&nbsp;|&nbsp;<a
-                        href="#" onclick="resetPassword('${user.id}')" style="color:red;">重置密码</a></td>
-            </c:if>
-            <c:if test="${user.lv>=2}">
-                <td>无</td>
-            </c:if>
+            <th style="text-align: center">ID</th>
+            <th style="text-align: center">用户名</th>
+            <th style="text-align: center">邮箱</th>
+            <th style="text-align: center">权限</th>
+            <th style="text-align: center">等级</th>
+            <th style="text-align: center">操作</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach items="${sessionScope.users}" var="user" varStatus="num">
+            <tr>
+                <td>${num.index+1}</td>
+                <td>${user.userName}</td>
+                <td>${user.email}</td>
+                <c:if test="${user.lv==0}">
+                    <td>社员</td>
+                </c:if>
+                <c:if test="${user.lv==1}">
+                    <td>管理员</td>
+                </c:if>
+                <c:if test="${user.lv>=2}">
+                    <td>超级管理员</td>
+                </c:if>
+                <td>Lv.${user.userLv}</td>
+                <c:if test="${user.lv==0}">
+                    <td><a href="#" onclick="addManage('${user.id}')" style="color:red;">
+                        <button style="width: 100px;background-color: #098ddf;" type="button"
+                                class="layui-btn layui-btn-normal">设为管理员
+                        </button>
+                    </a>
+                        <a href="#" onclick="resetPassword('${user.id}')"
+                            style="color:red;">
+                            <button style="width: 100px;background-color: #098ddf;" type="button"
+                                    class="layui-btn layui-btn-normal">重置密码
+                            </button>
+                        </a>
+                    </td>
+                </c:if>
+                <c:if test="${user.lv==1}">
+                    <td><a href="#" onclick="deleteManage('${user.id}')" style="color:red;">
+                        <button style="width: 100px;background-color: #098ddf;" type="button"
+                                class="layui-btn layui-btn-normal">取消管理员
+                        </button>
+                    </a>
+                        <a href="#" onclick="resetPassword('${user.id}')" style="color:red;">
+                            <button style="width: 100px;background-color: #098ddf;" type="button"
+                                    class="layui-btn layui-btn-normal">重置密码
+                            </button>
+                        </a></td>
+                </c:if>
+                <c:if test="${user.lv>=2}">
+                    <td>无</td>
+                </c:if>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

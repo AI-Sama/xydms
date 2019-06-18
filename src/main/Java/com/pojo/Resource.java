@@ -10,6 +10,7 @@ public class Resource {
     private Integer lookNum;//查看次数
     private Date  upTime;//上传时间
     private Integer srcState;//审核状态
+    private String srcDownload;//下载链接
     private String srcImg01;//图一
     private String srcImg02;//图二
     private String srcImg03;//图三
@@ -24,10 +25,19 @@ public class Resource {
                 ", lookNum=" + lookNum +
                 ", upTime=" + upTime +
                 ", srcState=" + srcState +
+                ", srcDownload='" + srcDownload + '\'' +
                 ", srcImg01='" + srcImg01 + '\'' +
                 ", srcImg02='" + srcImg02 + '\'' +
                 ", srcImg03='" + srcImg03 + '\'' +
                 '}';
+    }
+
+    public String getSrcDownload() {
+        return srcDownload;
+    }
+
+    public void setSrcDownload(String srcDownload) {
+        this.srcDownload = srcDownload;
     }
 
     public Integer getSrcState() {

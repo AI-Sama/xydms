@@ -99,16 +99,6 @@
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
 <div class="bigSrc_Big">
-    <c:if test="${sessionScope.user.lv>=1}">
-    <a href="javascript:void(0)"><div onclick="setTop('${announce.id}','${announce.top}')" style="float: right;width: 100px;height: 40px;line-height: 40px;text-align: center;background-color: lightpink;color: white">
-        <c:if test="${announce.top==true}">
-        取消置顶
-        </c:if>
-        <c:if test="${announce.top==false}">
-            设为置顶
-        </c:if>
-    </div></a>
-    </c:if>
     <div class="bigSrc_title"><b>${announce.annName}</b>
         <table style="font-size: 8px;margin: auto; color: #5e5e5e;opacity: 0.6 ">
             <tr>
@@ -122,18 +112,24 @@
             </tr>
         </table>
     </div>
-    <hr style="border: 1px #ff8a00 solid;">
+    <div style="width: 100%;height: 2px;background-color: lightblue"></div>
     <div class="bigSrc_text">
         ${announce.annText}
     </div>
-    <div class="back_css" onclick="window.history.go(-1)">
-        <img class="back_img" src="/Img_icon/back.png">
-    </div>
+    <div style="text-align: center">
+        <c:if test="${sessionScope.user.lv>=1}">
+                <c:if test="${announce.top==true}">
+                    <button style="width: 100px;background-color: lightblue;" type="button" onclick="setTop('${announce.id}','${announce.top}')" class="layui-btn layui-btn-normal">取消置顶</button>
+                </c:if>
+                <c:if test="${announce.top==false}">
+                    <button style="width: 100px;background-color: lightblue;" type="button" onclick="setTop('${announce.id}','${announce.top}')" class="layui-btn layui-btn-normal">设为置顶</button>
+                </c:if>
+        </c:if>
+    <button type="button" style="width: 100px;background-color: lightblue;" onclick="window.history.go(-1)" class="layui-btn layui-btn-normal">返回</button>
     <c:if test="${sessionScope.user.lv>=1}">
-        <div class="back_css" onclick="deleteGongao('${announce.id}')">
-            <img class="back_img" src="/Img_icon/delete.png">
-        </div>
+        <button style="width: 100px;background-color: lightblue;" type="button" onclick="deleteGongao('${announce.id}')" class="layui-btn layui-btn-normal">删除</button>
     </c:if>
+    </div>
 </div>
 <%--<div style="width: 95%;height: 200px;margin: auto">--%>
     <%--<textarea id="plun" style="resize: none;border-radius: 5px;font-size: 20px;width: 100%;height: 200px"--%>

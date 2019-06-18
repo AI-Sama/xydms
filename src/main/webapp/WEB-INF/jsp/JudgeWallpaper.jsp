@@ -27,6 +27,7 @@
             }
         })
     }
+
     function judgeAll() {
         $.ajax({
             type: "POST",
@@ -52,12 +53,20 @@
 </style>
 <body bgcolor="#f0f8ff">
 <jsp:include page="Ym_title.jsp"></jsp:include>
-        <a href="javascript:void(0)">
-            <div class="judge" onclick="judgeAll()" style="text-align: center;color:white;border-radius: 5px;
+   <c:if test="${not empty imgs}">
+    <a href="javascript:void(0)">
+        <div class="judge" onclick="judgeAll()" style="text-align: center;color:white;border-radius: 5px;
             font-size:22px;width: 150px;line-height: 50px;height: 50px;background-color:lightblue;margin: auto;margin-top: 20px">
-                全部通过
-            </div>
-        </a>
+            全部通过
+        </div>
+    </a>
+   </c:if>
+<c:if test="${empty imgs}">
+        <div  style="text-align: center;color:white;border-radius: 5px;
+            font-size:22px;width: 300px;line-height: 50px;height: 50px;background-color:lightblue;margin: auto;margin-top: 20px">
+            暂无待审核的图片
+        </div>
+</c:if>
 <div id="all" style="width: 95%;margin:auto;">
     <c:forEach items="${imgs}" var="img" varStatus="num">
         <div id="img${num.index}" style="margin-top: 20px;margin-left:2%;width: 31%;float: left;height: 450px;">
