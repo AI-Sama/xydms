@@ -42,6 +42,9 @@
     <update id="clickSrc" parameterType="java.lang.Integer">
         update resource set lookNum=lookNum+1  where id=#{id}
     </update>
+    <update id="updateDownload">
+        update resource set srcDownload=#{srcDownload} where id=#{id}
+    </update>
     <delete id="deleteSrc" parameterType="java.lang.Integer">
       delete from resource where id=#{id}
     </delete>

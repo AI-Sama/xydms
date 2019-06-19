@@ -13,7 +13,7 @@ import java.util.Map;
 @Service
 public class AnimaService {
     @Autowired
-    AnimaMapper animaMapper;
+    private AnimaMapper animaMapper;
     public Map<String,List<Anima>> findAnima(){ //查找全部番剧,填充到map集合里面
         List<Anima> lists=animaMapper.findAnima();
         Map<String,List<Anima>> map=new HashMap<>();

@@ -3,6 +3,7 @@ package com.service;
 import com.mapper.ResourceMapper;
 import com.pojo.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,7 +15,9 @@ import java.util.List;
 @Service
 public class ResourceService {
     @Autowired
-    ResourceMapper resourceMapper;
+    private ResourceMapper resourceMapper;
+    @Value("${src.resImg}")
+    private  String resImg;
     public List<Resource> findAllSrc(Integer pageNum) {//查找指定页数的资源
         int num = pageNum == 1 ? 0 : ((pageNum - 1) * 6);
         return resourceMapper.selectAllSrc(num);
@@ -62,7 +65,7 @@ public class ResourceService {
             if (!files[x].isEmpty()) {//储存图片
                 try {
                     String fileName = String.valueOf(num) +"-"+y+ ".jpg";
-                    String filepath = "D:\\showImg\\SrcImg\\" + fileName;
+                    String filepath = resImg + fileName;
 //                    String filepath = "/home/BigImg/SrcImg/" + fileName;
                     File f = new File(filepath);
                     files[x].transferTo(f);
@@ -90,5 +93,8 @@ public class ResourceService {
     }
     public void deleteSrc(Integer id){//删除资源
         resourceMapper.deleteSrc(id);
+    }
+    public void updateDownload(Integer id,String srcDownLoad){
+          resourceMapper.updateDownload(id,srcDownLoad);
     }
 }

@@ -4,6 +4,7 @@ import com.pojo.Wallpaper;
 import net.coobird.thumbnailator.Thumbnails;
 import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
@@ -13,8 +14,11 @@ import java.util.List;
 @Service
 public class WallpaperService {
     @Autowired
-   WallpaperMapper wallpaperMapper;
-
+    private WallpaperMapper wallpaperMapper;
+    @Value("${src.bigImg}")
+    private String smallImg;
+    @Value("${src.smallImg}")
+    private  String bigImg;
     public List<Wallpaper> selectHotImgList(Integer nowPageCount) {//根据页数查找热门图片
         int page = (nowPageCount == 1 ? 0 : (nowPageCount - 1) * 15);
         return wallpaperMapper.selectHotImgList(page);
@@ -62,11 +66,11 @@ public class WallpaperService {
                     img.setImgMsg("图片来自于网络");
                 }
                 wallpaperMapper.upImg(img);
-                   String filepath = "D:\\showImg\\BigImg\\" + fileName;
+                   String filepath = bigImg + fileName;
 //                String filepath = "/home/BigImg/BigImg/" + fileName;
                 File f = new File(filepath);
                 file.transferTo(f);
-                   Thumbnails.of(filepath).scale(0.4f).toFile("D:\\showImg\\SmallImg\\" + fileName);
+                   Thumbnails.of(filepath).scale(0.4f).toFile(smallImg + fileName);
 //                Thumbnails.of(filepath).scale(0.4f).toFile("/home/BigImg/SmallImg/" + fileName);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -22,15 +22,6 @@ public class IndexController {
     AnimaService animaService;
     @Autowired
     AnnounceService announceService;
-    @RequestMapping(value = "*",produces = {"text/html;charset=UTF-8;", "application/json;"})
-    //*的优先级最低,所以如果找不到其他匹配的路径,就会跳到这个页面,进行404处理
-    public ModelAndView pageNotFound() {
-        //统一404处理
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.setViewName("404Error");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/jumpIndex",produces = {"text/html;charset=UTF-8;", "application/json;"})
     public ModelAndView jumpIndex(HttpSession httpSession, HttpServletRequest httpServletRequest){//跳转到首页
         ModelAndView modelAndView=new ModelAndView();

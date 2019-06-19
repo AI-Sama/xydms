@@ -92,4 +92,10 @@ public class ResourceController {
         resourceService.deleteSrc(id);
         return "操作成功";
     }
+    @RequestMapping(value = "/updateDownLoad",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String  updateDownLoad(Integer id,String srcDownLoad){//更新下载链接
+        resourceService.updateDownload(id,srcDownLoad);
+        return "更新成功";
+    }
 }

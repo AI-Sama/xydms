@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.EduAccountMapper">
+    <resultMap id="eduResultMap" type="com.pojo.EduAccount">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="bindUser" property="bindUser" jdbcType="VARCHAR"/>
+        <result column="eduUserName" property="eduUserName" jdbcType="VARCHAR"/>
+        <result column="eduPassword" property="eduPassword" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="addEduAccount" parameterType="com.pojo.EduAccount">
+           insert into eduAccount(bindUser,eduUserName,eduPassword) values(#{bindUser},#{eduUserName},#{eduPassword})
+    </insert>
+    <delete id="deleteEduAccount" parameterType="java.lang.String">
+           delete from eduAccount where bindUser=#{bindUser}
+    </delete>
+    <select id="findEduAccount" parameterType="java.lang.String" resultMap="eduResultMap">
+        select * from eduAccount where  bindUser=#{bindUser}
+    </select>
+</mapper>

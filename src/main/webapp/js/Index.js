@@ -81,6 +81,8 @@ function SignUp() {
             alert(result);
             if (result == "注册成功") {
                 $("#zc_box").css("display", "none");
+            }else{
+                document.getElementById("zc_form").reset();
             }
         }
     });
@@ -96,6 +98,8 @@ function SignIn() {
             alert(result);
             if (result == "登录成功") {
                 window.location.replace("/index.jsp");
+            }else{
+                $("#dlPassword").val("");
             }
         }
     });

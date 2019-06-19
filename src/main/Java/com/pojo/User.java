@@ -12,6 +12,7 @@ public class User {
     private Integer countDay;//签到天数
     private Integer userLv;//用户等级
     private String  userImg;//用户头像
+   private  Boolean eduAccount;//是否绑定教务管理系统账号
 
     @Override
     public String toString() {
@@ -25,7 +26,16 @@ public class User {
                 ", countDay=" + countDay +
                 ", userLv=" + userLv +
                 ", userImg='" + userImg + '\'' +
+                ", eduAccount=" + eduAccount +
                 '}';
+    }
+
+    public Boolean getEduAccount() {
+        return eduAccount;
+    }
+
+    public void setEduAccount(Boolean eduAccount) {
+        this.eduAccount = eduAccount;
     }
 
     public Date getSignDay() {

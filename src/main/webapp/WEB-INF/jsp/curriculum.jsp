@@ -17,7 +17,7 @@
 <div>
     <jsp:include page="Ym_title.jsp"></jsp:include>
 </div>
-<c:if test="${empty kbs}">
+<c:if test="${empty sessionScope.kbs}">
     <script>
         alert("账号或密码错误");
         window.location.replace("/ToolsController/jumpTools");
@@ -26,14 +26,14 @@
 <div style="width: 95%;margin: auto;margin-top: 30px;">
     <div style="width: 98%;margin: auto;margin-top: 10px;height: 1100px;">
         <div style="color: white;text-align: center;line-height: 100px;font-size: 50px;background-color: lightblue;height: 100px">
-            <div class="backcolor" id="weekday1" style="float: left;width: 19.8%;color: white">周一</div>
-            <div class="backcolor" id="weekday2" style="float: left;width: 19.8%;color: white">周二</div>
-            <div class="backcolor" id="weekday3" style="float: left;width: 19.8%;color: white">周三</div>
-            <div class="backcolor" id="weekday4" style="float: left;width: 19.8%;color: white">周四</div>
-            <div class="backcolor" id="weekday5" style="float: left;width: 19.8%;color: white">周五</div>
+            <div  id="weekday1" style="float: left;width: 19.8%;color: white">周一</div>
+            <div  id="weekday2" style="float: left;width: 19.8%;color: white">周二</div>
+            <div  id="weekday3" style="float: left;width: 19.8%;color: white">周三</div>
+            <div  id="weekday4" style="float: left;width: 19.8%;color: white">周四</div>
+            <div  id="weekday5" style="float: left;width: 19.8%;color: white">周五</div>
         </div>
         <div id="class1" class="showKebiao">
-        <c:forEach  items="${kbs.class1}" var="c1" varStatus="num">
+        <c:forEach  items="${sessionScope.kbs.class1}" var="c1" varStatus="num">
             <div style=";color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                 <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                 第一节
@@ -45,7 +45,7 @@
         </c:forEach>
         </div>
         <div id="class2" class="showKebiao">
-            <c:forEach  items="${kbs.class2}" var="c1" varStatus="num">
+            <c:forEach  items="${sessionScope.kbs.class2}" var="c1" varStatus="num">
                 <div style="color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                     <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                         第二节
@@ -57,7 +57,7 @@
             </c:forEach>
         </div>
         <div id="class3" class="showKebiao">
-            <c:forEach  items="${kbs.class3}" var="c1" varStatus="num">
+            <c:forEach  items="${sessionScope.kbs.class3}" var="c1" varStatus="num">
                 <div style="color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                     <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                         第三节
@@ -69,7 +69,7 @@
             </c:forEach>
         </div>
         <div id="class4" class="showKebiao">
-            <c:forEach  items="${kbs.class4}" var="c1" varStatus="num">
+            <c:forEach  items="${sessionScope.kbs.class4}" var="c1" varStatus="num">
                 <div style="color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                     <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                         第四节
@@ -81,7 +81,7 @@
             </c:forEach>
         </div>
         <div id="class5" class="showKebiao">
-            <c:forEach  items="${kbs.class5}" var="c1" varStatus="num">
+            <c:forEach  items="${sessionScope.kbs.class5}" var="c1" varStatus="num">
                 <div style="color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                     <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                         第五节
@@ -93,7 +93,7 @@
             </c:forEach>
         </div>
         <div id="class6" class="showKebiao">
-            <c:forEach  items="${kbs.class6}" var="c1" varStatus="num">
+            <c:forEach  items="${sessionScope.kbs.class6}" var="c1" varStatus="num">
                 <div style="color: white;border-radius: 8px;margin-top: 20px;margin-left: 1.5%;float: left;width: 18%;height: 150px;background-color: white">
                     <div style="text-align: center;font-size: 30px;width: 100%;height: 40px;background-color: lightblue">
                         第六节

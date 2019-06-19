@@ -38,7 +38,7 @@
         <div class="body">
             <input value="${sessionScope.userName}" class="youXiang" type="text" name="str1"
                    placeholder="&#12288✉&nbsp;您的用户名或邮箱">
-            <input value="${sessionScope.password}" class="youXiang" type="password" name="password"
+            <input id="dlPassword" value="${sessionScope.password}" class="youXiang" type="password" name="password"
                    placeholder="&#12288🗝&nbsp;您的密码">
             <div style="opacity: 0.7;width: 620px;height: 60px; font-size: 30px; margin-left: 20px;
             margin-top: 15px;">
@@ -210,7 +210,11 @@
                 <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-upload"></i>&nbsp;
                 资源上传
             </a></li>
-
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/SuggestController/jumpSuggest">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-survey"></i>&nbsp;
+                建议反馈
+            </a></li>
         <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
             <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/UserController/signOut">
                 <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-close"></i>&nbsp;

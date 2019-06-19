@@ -11,6 +11,40 @@ function chaxunKB() {
     $("#form2").css("display","block");
 }
 
+function cxCJ(userName){
+    var data={
+        userName:userName,
+    }
+    $.ajax({
+        type:"post",
+        data:data,
+        url:"/ToolsController/findCJ",
+        success:function (result) {
+            if(result=="查询成功"){
+                window.location.replace("/ToolsController/jumpGrade")
+            }else{
+                alert(result);
+            }
+        }
+    })
+}
+function cxKB(userName) {
+    var data={
+        userName:userName,
+    }
+    $.ajax({
+        type:"post",
+        data:data,
+        url:"/ToolsController/findKB",
+        success:function (result) {
+            if(result=="查询成功"){
+                window.location.replace("/ToolsController/jumpCurriculum")
+            }else{
+                alert(result);
+            }
+        }
+    })
+}
 function tijiao() {
     var name = $("#user").val();
     var pw = $("#pass").val();
@@ -71,8 +105,23 @@ function InputCJ() {
         alert("账号或密码不能为空");
         return false;
     }
+    var data={
+        userName:cla,
+        password:num
+    }
     $("#loadIng").css("display","block");
-    window.location.replace("/ToolsController/findCJ?userName=" + cla + "&password=" + num);
+    $.ajax({
+        type:"post",
+        url:"/ToolsController/findCJ",
+        data:data,
+        success:function (result) {
+            if(result=="查询成功"){
+                window.location.replace("/ToolsController/jumpGrade")
+            }else{
+                alert(result);
+            }
+        }
+    })
 }
 function InputKB() {
     var cla = $("#username2").val();
@@ -81,8 +130,23 @@ function InputKB() {
         alert("账号或密码不能为空");
         return false;
     }
+    var data={
+        userName:cla,
+        password:num
+    }
     $("#loadIng").css("display","block");
-    window.location.replace("/ToolsController/findKB?userName=" + cla + "&password=" + num);
+    $.ajax({
+        type:"POST",
+        url:"/ToolsController/findKB",
+        data:data,
+        success:function (result) {
+            if(result=="查询成功"){
+                window.location.replace("/ToolsController/jumpCurriculum")
+            }else{
+                alert(result);
+            }
+        }
+    })
 }
 
 

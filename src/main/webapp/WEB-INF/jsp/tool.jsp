@@ -36,9 +36,9 @@
 <%--</div>--%>
 <div id="form3"
      style="z-index: 100;color: gray;display: none;border-radius: 3px;position: fixed;width: 500px;height: 205px;left: 50%;transform: translateX(-50%);top:40%;background-color: white;">
-    <input id="username" style="margin: 20px;width: 440px;height: 50px;font-size: 30px" type="text" name="name"
+    <input id="username" style="margin: 20px;width: 460px;height: 50px;font-size: 30px" type="text" name="name"
            lay-verify="pass" placeholder="&#12288请输入您的教务管理系统账号" autocomplete="off" class="layui-input">
-    <input id="password" style="margin: 20px;width: 440px;height: 50px;font-size: 30px" type="password" name="password"
+    <input id="password" style="margin: 20px;width: 460px;height: 50px;font-size: 30px" type="password" name="password"
            lay-verify="pass" placeholder="&#12288请输入您的教务管理系统密码" autocomplete="off" class="layui-input">
     <div style="width: 500px;height:60px;margin: auto;margin-top: 10px"><input onclick="InputCJ()" type="button" style=" font-size: 25px;
     color: white;width: 500px;border: none;border-radius: 0 0 3px 3px;
@@ -48,9 +48,9 @@
 
 <div id="form4"
      style="z-index: 100;color: gray;display: none;border-radius: 3px;position: fixed;width: 500px;height: 205px;left: 50%;transform: translateX(-50%);top:40%;background-color: white;">
-    <input id="username2" style="margin: 20px;width: 440px;height: 50px;font-size: 30px" type="text" name="name"
+    <input id="username2" style="margin: 20px;width: 460px;height: 50px;font-size: 30px" type="text" name="name"
            lay-verify="pass" placeholder="&#12288请输入您的教务管理系统账号" autocomplete="off" class="layui-input">
-    <input id="password2" style="margin: 20px;width: 440px;height: 50px;font-size: 30px" type="password" name="password"
+    <input id="password2" style="margin: 20px;width: 460px;height: 50px;font-size: 30px" type="password" name="password"
            lay-verify="pass" placeholder="&#12288请输入您的教务管理系统密码" autocomplete="off" class="layui-input">
     <div style="width: 500px;height:60px;margin: auto;margin-top: 10px"><input onclick="InputKB()" type="button" style="
      font-size: 25px;color: white;width: 500px;border: none;
@@ -69,16 +69,32 @@
     <%--</div>--%>
     <%--</a>--%>
     <a href="javascript:void(0)">
-        <div class="gju" onclick="chaxunKB()"
-             style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
-            课表查询
-        </div>
+        <c:if test="${not empty sessionScope.user and sessionScope.user.eduAccount==true}">
+            <div class="gju" onclick="cxKB('${sessionScope.user.userName}')"
+                 style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
+                课表查询
+            </div>
+        </c:if>
+        <c:if test="${empty sessionScope.user or sessionScope.user.eduAccount==false }">
+            <div class="gju" onclick="chaxunKB()"
+                 style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
+                课表查询
+            </div>
+        </c:if>
     </a>
     <a href="javascript:void(0)">
-        <div class="gju" onclick="chaxunCJ()"
-             style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
-            成绩查询
-        </div>
+        <c:if test="${not empty sessionScope.user and sessionScope.user.eduAccount==true}">
+            <div class="gju" onclick="cxCJ('${sessionScope.user.userName}')"
+                 style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
+                成绩查询
+            </div>
+        </c:if>
+        <c:if test="${empty sessionScope.user or sessionScope.user.eduAccount==false}">
+            <div class="gju" onclick="chaxunCJ()"
+                 style="position: relative;margin-top: 1520px;margin-left: 1%;font-size: 30px;text-align: center;line-height: 100px;border-radius: 10px;float: left;width:48%;height: 100px;background-color: lightblue;color: white">
+                成绩查询
+            </div>
+        </c:if>
     </a>
 </div>
 </body>

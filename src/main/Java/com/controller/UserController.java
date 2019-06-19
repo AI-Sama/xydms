@@ -2,6 +2,7 @@ package com.controller;
 
 
 import com.pojo.User;
+import com.service.EduAccountService;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private EduAccountService eduAccountService;
     @RequestMapping(value = "/addUser",produces = {"text/html;charset=UTF-8;", "application/json;"})
     @ResponseBody
     public String addUser(User user) throws Exception{//注册账号
@@ -117,5 +119,27 @@ public class UserController {
         }
         userService.changePassword(userId,newPassword);
         return "修改成功,重新登录后生效";
+    }
+
+    @RequestMapping(value = "/addEduAccount",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String addEduAccount(String  userName,String eduName,String eduPassword,HttpSession httpSession) throws Exception{//添加绑定账号
+        userService.setEduAccount(true,userName);
+        try{
+        eduAccountService.addEduAccount(userName,eduName,eduPassword);
+     }catch (Exception c){
+        userService.setEduAccount(false,userName);
+        return "绑定失败,请稍后再重试";
+    }
+         httpSession.removeAttribute("user");
+        return "绑定成功,请重新登录账号";
+    }
+    @RequestMapping(value = "/deleteEduAccount",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    @ResponseBody
+    public String deleteEduAccount(String  userName,HttpSession httpSession) throws Exception{//取消绑定账号
+        userService.setEduAccount(false,userName);
+            eduAccountService.deleteEduAccount(userName);
+        httpSession.removeAttribute("user");
+        return "取消绑定成功,请重新登录账号";
     }
 }

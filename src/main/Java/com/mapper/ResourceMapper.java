@@ -17,4 +17,5 @@ public interface ResourceMapper {
     Resource selectSrc(@Param("id")Integer id);//查找单个资源
     void clickSrc(@Param("id")Integer id);//增加点击率
     void deleteSrc(@Param("id")Integer id);//删除资源
+    void updateDownload(@Param("id")Integer id,@Param("srcDownload")String srcDownload);//更新下载链接
 }

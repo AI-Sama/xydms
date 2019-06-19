@@ -17,6 +17,7 @@
     <!--静态资源访问-->
     <mvc:default-servlet-handler/>
 
+
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -37,6 +38,17 @@
     <!--可配置多个拦截器,顺序执行-->
     <mvc:interceptors>
         <mvc:interceptor>
+            <mvc:mapping path="/UserController/*"/>
+            <mvc:mapping path="/WallpaperController/*"/>
+            <mvc:mapping path="/ResourceController/*"/>
+            <mvc:mapping path="/IndexController/*"/>
+            <mvc:mapping path="/AnnounceController/*"/>
+            <mvc:mapping path="/AnimaController/*"/>
+            <mvc:mapping path="/ToolsController/*"/>
+            <bean id="ClickInterceptor" class="com.interceptor.ClickInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/SuggestController/*"/>
             <mvc:mapping path="/UserController/checkIn"/>
             <mvc:mapping path="/UserController/signOut"/>
             <mvc:mapping path="/UserController/jumpPerson"/>
@@ -70,6 +82,6 @@
     </mvc:interceptors>
 
     <!--统一异常处理类的实例化-->
-    <!--<bean id="ExceptionHandler" class="com.ExceptionHandler.ExceptionHandler"></bean>-->
+    <bean id="ExceptionHandler" class="com.ExceptionHandler.ExceptionHandler"></bean>
 
 </beans>

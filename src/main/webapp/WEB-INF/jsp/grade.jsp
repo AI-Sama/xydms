@@ -21,7 +21,7 @@
 <div style="margin-top: 30px;font-family: '楷体'">
     <table style="margin: auto;text-align: center;width: 95%;">
         <tr style="font-size: 30px;color: lightblue;height: 50px;background: white;border:lightblue 1px solid; "><td>编号</td><td>课程名称</td><td>成绩</td></tr>
-        <c:forEach items="${cjs}" var="kemu" varStatus="num">
+        <c:forEach items="${sessionScope.cjs}" var="kemu" varStatus="num">
             <tr style="font-size: 30px;background: lightblue ">
                 <td  style="width: 10%;border:white 1px solid;height: 60px;color: white"> ${num.index+1}</td>
                     <td  style="border:white 1px solid;height: 60px;color: white"> ${kemu['mc']}</td>
@@ -29,7 +29,7 @@
             </tr>
         </c:forEach>
     </table>
-    <c:if test="${empty cjs}">
+    <c:if test="${empty sessionScope.cjs}">
             <script>
                 alert("账号或密码错误");
                 window.location.replace("/ToolsController/jumpTools");

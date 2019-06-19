@@ -18,5 +18,6 @@ public interface  UserMapper{
     void deleteManage( @Param("userId") Integer userId);//删除管理员
     void resetPassword(@Param("userId") Integer userId);//重置密码
     void setPassword(@Param("password")String password,@Param("userId")Integer userId);//修改密码
-
+    void setEduAccount(@Param("eduAccount") Boolean eduAccount,@Param("userName") String userName);//设置绑定账号
+    void clickNum();//增加点击数
 }

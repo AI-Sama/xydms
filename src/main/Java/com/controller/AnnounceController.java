@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.processors.JsDateJsonValueProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +25,8 @@ import java.util.*;
 @Controller
 @RequestMapping("/AnnounceController")
 public class AnnounceController {
-
+    @Value("${src.annImg}")
+    private  String annImg;
     @Autowired
     AnnounceService announceService;
     @RequestMapping(value = "/jumpAnnounce", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
@@ -43,7 +45,7 @@ public class AnnounceController {
             MultipartFile file=mhs.getFile(iter.next());
             if(file!=null){
                 filename= UUID.randomUUID().toString().replaceAll("-","")+".jpg";
-                    File f=new File("D:\\showImg\\AnnImg\\"+filename);
+                    File f=new File(annImg+filename);
 //                File f=new File("/home/BigImg/GongaoImg/"+filename);
                 file.transferTo(f);
                 // System.out.println("文件名:"+filename);

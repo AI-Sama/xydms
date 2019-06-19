@@ -98,4 +98,10 @@ public class UserService {
     public void changePassword(Integer userId,String password){//修改密码
         userMapper.setPassword(password,userId);
     }
+    public void setEduAccount(Boolean bl,String userName){//设置是否绑定账号
+         userMapper.setEduAccount(bl,userName);
+    }
+    public  void  clickNum(){//增加点击数
+        userMapper.clickNum();
+    }
 }

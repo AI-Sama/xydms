@@ -28,7 +28,14 @@
             <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
+
     <!-- 切面 -->
+    <!--使用的是代理类，而不是代理接口-->
+    <aop:config proxy-target-class="true">
+        <!--指定目标组件（指定作用范围）-->
+       <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.controller.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.service.*.*(..))" />
+    </aop:config>
    <!-- <aop:config>
         <aop:advisor advice-ref="txAdvice"
                      pointcut="execution(* manage.service.*.*(..))"/>

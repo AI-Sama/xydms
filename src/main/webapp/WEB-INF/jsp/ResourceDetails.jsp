@@ -12,6 +12,25 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/srcMess_mobile.css"
     />
     <script>
+        function updateDl(srcid) {
+           var src= prompt("请输入新的下载链接");
+           if(src==null){
+               return false;
+           }
+           var data={
+               id:srcid,
+               srcDownLoad:src
+           }
+           $.ajax({
+               type:"POST",
+               data:data,
+               url:"/ResourceController/updateDownLoad",
+               success:function (result) {
+                   alert(result);
+                   window.location.reload();
+               }
+           })
+        }
         function fabuPl(itemid) {
             var ptext = $("#plun").val();
             if(ptext.trim().length<=0){
@@ -110,8 +129,11 @@
     <div style="text-align: center">
         <button style="width: 100px;background-color: lightblue;" type="button" onclick="window.history.go(-1)" class="layui-btn layui-btn-normal">返回</button>
         <a href="${bigSrcMess.srcDownload}"><button style="width: 100px;background-color: lightblue;" type="button"  class="layui-btn layui-btn-normal">下载</button></a>
-        <c:if test="${sessionScope.user.lv>=1}">
-            <button style="width: 100px;background-color: lightblue;" type="button" onclick="deleteZY('${bigSrcMess.id}')" class="layui-btn layui-btn-normal">删除</button>
+        <c:if test="${sessionScope.user.userName==bigSrcMess.upUser}">
+            <button style="width: 130px;background-color: lightblue;" type="button" onclick="updateDl('${bigSrcMess.id}')" class="layui-btn layui-btn-normal">更新下载链接</button>
+        </c:if>
+        <c:if test="${sessionScope.user.lv>=1 or sessionScope.user.userName==bigSrcMess.upUser}">
+            <button style="margin-left: 0px;width: 100px;background-color: lightblue;" type="button" onclick="deleteZY('${bigSrcMess.id}')" class="layui-btn layui-btn-normal">删除</button>
         </c:if>
     </div>
 </div>
