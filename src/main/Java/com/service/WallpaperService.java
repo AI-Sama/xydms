@@ -15,9 +15,9 @@ import java.util.List;
 public class WallpaperService {
     @Autowired
     private WallpaperMapper wallpaperMapper;
-    @Value("${src.bigImg}")
-    private String smallImg;
     @Value("${src.smallImg}")
+    private String smallImg;
+    @Value("${src.bigImg}")
     private  String bigImg;
     public List<Wallpaper> selectHotImgList(Integer nowPageCount) {//根据页数查找热门图片
         int page = (nowPageCount == 1 ? 0 : (nowPageCount - 1) * 15);
@@ -67,11 +67,9 @@ public class WallpaperService {
                 }
                 wallpaperMapper.upImg(img);
                    String filepath = bigImg + fileName;
-//                String filepath = "/home/BigImg/BigImg/" + fileName;
-                File f = new File(filepath);
-                file.transferTo(f);
+                 File f = new File(filepath);
+                 file.transferTo(f);
                    Thumbnails.of(filepath).scale(0.4f).toFile(smallImg + fileName);
-//                Thumbnails.of(filepath).scale(0.4f).toFile("/home/BigImg/SmallImg/" + fileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }

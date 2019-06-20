@@ -13,7 +13,6 @@ import java.util.List;
 public class AnnounceService {
     @Autowired
     private AnnounceMapper announceMapper;
-
     public void insertAnn(String text,String name,String user){//插入一条公告
         Announce ann=new Announce();
         ann.setAnnName(name);

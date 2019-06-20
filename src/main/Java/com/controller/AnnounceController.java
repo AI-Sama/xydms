@@ -25,10 +25,10 @@ import java.util.*;
 @Controller
 @RequestMapping("/AnnounceController")
 public class AnnounceController {
-    @Value("${src.annImg}")
-    private  String annImg;
     @Autowired
     AnnounceService announceService;
+    @Value("${src.annImg}")
+    private String annImg;
     @RequestMapping(value = "/jumpAnnounce", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径
     public String jumpAnnounce(){//跳转到发布公告页面
         return "Announce";
@@ -44,18 +44,15 @@ public class AnnounceController {
         while(iter.hasNext()){
             MultipartFile file=mhs.getFile(iter.next());
             if(file!=null){
-                filename= UUID.randomUUID().toString().replaceAll("-","")+".jpg";
+                   filename= UUID.randomUUID().toString().replaceAll("-","")+".jpg";
                     File f=new File(annImg+filename);
-//                File f=new File("/home/BigImg/GongaoImg/"+filename);
-                file.transferTo(f);
-                // System.out.println("文件名:"+filename);
+                   file.transferTo(f);
             }
         }
-        //String filepath = "D:\\showImg\\SrcImg\\" + fileName;
         Map<String,String> m=new HashMap<>();
         m.put("name","文件名");
-        //m.put("path","/srcImg/"+filename);
         m.put("path","/annImg/"+filename);
+        System.out.println(m);
         return JSONUtils.toJSONString(m);
     }
     @RequestMapping(value = "/insertAnn", produces = {"text/html;charset=UTF-8;", "application/json;"})//配置方法url路径

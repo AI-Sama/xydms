@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@page import="com.pojo.Suggest" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -105,13 +106,13 @@
 <div id="neirong"
      style="position: relative;top: 930px;color: white;background-color:lightblue;width:88%;margin: auto;margin-top: 20px;height: auto;border-radius: 10px">
     <ul style="background-color: lightblue;text-align: center;height: 100px;" class="layui-nav">
-        <li id="week1" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周一</a></li>
-        <li id="week2" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周二</a></li>
-        <li id="week3" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周三</a></li>
-        <li id="week4" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周四</a></li>
-        <li id="week5" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周五</a></li>
-        <li id="week6" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周六</a></li>
-        <li id="week7" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 40px;line-height: 100px" href="javascript:void(0)">周日</a></li>
+        <li id="week1" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周一</a></li>
+        <li id="week2" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周二</a></li>
+        <li id="week3" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周三</a></li>
+        <li id="week4" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周四</a></li>
+        <li id="week5" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周五</a></li>
+        <li id="week6" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周六</a></li>
+        <li id="week7" style="height: 100px;width: 14.2%" class="layui-nav-item"><a style="font-size: 30px;line-height: 100px" href="javascript:void(0)">周日</a></li>
     </ul>
     <div id="zhou1" style="display: none">
         <c:forEach items="${sessionScope.animaList.week1}" var="zhou1">

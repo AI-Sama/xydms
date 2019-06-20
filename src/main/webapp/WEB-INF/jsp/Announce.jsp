@@ -77,7 +77,6 @@
     });
     function sendFile(files,editor,$editable) {
         var text = $("#summernote").summernote("code");//获取里面的html文本内容
-        console.log(text);
         var filename=false;
         try{
             filename=file['name'];

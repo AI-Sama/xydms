@@ -123,9 +123,11 @@ function tc_zc() {
 }
 function guanBidl() {
     $("#dl_box").css("display","none");
+    document.getElementById("dl_form").reset();
 }
 function guanBizc() {
     $("#zc_box").css("display","none");
+    document.getElementById("zc_form").reset();
 }
 
 //=====================
@@ -152,4 +154,5 @@ $(document).ready(function () {
         week=7;
     }
     $("#week"+week).addClass("layui-this");
+    $("#zhou"+week).css("display","block");
 });

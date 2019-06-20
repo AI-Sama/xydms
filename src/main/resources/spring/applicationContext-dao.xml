@@ -9,21 +9,21 @@
    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <!-- 加载多个配置文件 -->
-    <bean id="PropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="order" value="1"/>
-        <property name="ignoreUnresolvablePlaceholders" value="true"/>
-        <property name="locations">
-            <list>
-                <!--读取src目录的db.properties文件-->
-                <value>classpath:properties/db.properties</value>
-                <!--读取src目录的redis-config.properties文件-->
-                <value>classpath:properties/srcPath.properties</value>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="PropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="order" value="1"/>-->
+        <!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;读取src目录的db.properties文件&ndash;&gt;-->
+                <!--<value>classpath:properties/db.properties</value>-->
+                <!--&lt;!&ndash;读取src目录的redis-config.properties文件&ndash;&gt;-->
+                <!--<value>classpath:properties/srcPath.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <!--加载单个配置文件-->
-    <!--<context:property-placeholder location="classpath:properties/db.properties" />-->
+    <!--加载多个配置文件第二种方式-->
+    <context:property-placeholder location="classpath:properties/db.properties,classpath:properties/srcPath.properties" />
 
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
