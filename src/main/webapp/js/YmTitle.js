@@ -21,7 +21,7 @@ $(document).ready(function () {
     //定义变量获取屏幕视口宽度
     var windowWidth = $(window).width();
     if (windowWidth > 1200) {
-        $("body").css("width", "50%");
+        $("body").css("width", "1000px");
         $("body").css("margin", "auto");
         $("#select_bz").css("width", "11.5%");
         $("#select_bz_two").css("width", "11.5%");

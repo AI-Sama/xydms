@@ -93,8 +93,8 @@
 <div class="head_mobile">
     <c:if test="${ not empty sessionScope.user}">
         <div style="float: left;text-align: left;margin-left: 20px">
-            <i style="font-size: 70px;line-height: 100px;color: lightblue" onclick="menuTanchu()"
-               class="layui-icon layui-icon-spread-left"></i>
+          <a href="javascript:menuTanchu()"> <i style="font-size: 70px;line-height: 100px;color: lightblue"
+               class="layui-icon layui-icon-spread-left"></i></a>
         </div>
     </c:if>
     <c:if test="${empty sessionScope.user}">
