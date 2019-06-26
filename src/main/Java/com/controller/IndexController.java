@@ -22,6 +22,14 @@ public class IndexController {
     AnimaService animaService;
     @Autowired
     AnnounceService announceService;
+
+    @RequestMapping(value = "/notSignMsg",produces = {"text/html;charset=UTF-8;", "application/json;"})
+    public ModelAndView notSignMsg(HttpSession httpSession){//未登录提示
+        ModelAndView modelAndView=new ModelAndView();
+        httpSession.setAttribute("message","请先登录");
+        modelAndView.setViewName("message");
+        return modelAndView;
+    }
     @RequestMapping(value = "/jumpIndex",produces = {"text/html;charset=UTF-8;", "application/json;"})
     public ModelAndView jumpIndex(HttpSession httpSession, HttpServletRequest httpServletRequest){//跳转到首页
         ModelAndView modelAndView=new ModelAndView();

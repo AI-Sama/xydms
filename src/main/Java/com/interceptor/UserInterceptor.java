@@ -15,7 +15,7 @@ public class UserInterceptor implements HandlerInterceptor {//登录拦截器
         HttpSession httpSession=httpServletRequest.getSession();
         User user=(User)httpSession.getAttribute("user");
         if(user==null){//如果未登录,拦截
-             httpServletRequest.getRequestDispatcher("/IndexController/jumpIndex").forward(httpServletRequest,httpServletResponse);
+             httpServletResponse.sendRedirect("/IndexController/notSignMsg");
             return false;
         }
         return true;

@@ -58,6 +58,8 @@
             <mvc:mapping path="/WallpaperController/jumpUpWallpaper"/>
             <mvc:mapping path="/ResourceController/jumpUpSrc"/>
             <mvc:mapping path="/ResourceController/loadSrc"/>
+            <mvc:mapping path="/AnimaController/chooseAnimaNums"></mvc:mapping>
+            <mvc:mapping path="/AnimaController/lookAnima"></mvc:mapping>
             <bean id="UserInterceptor" class="com.interceptor.UserInterceptor"></bean>
         </mvc:interceptor>
         <mvc:interceptor>

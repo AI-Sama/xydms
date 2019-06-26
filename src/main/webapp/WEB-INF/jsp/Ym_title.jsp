@@ -210,6 +210,12 @@
                 <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-upload"></i>&nbsp;
                 资源上传
             </a></li>
+
+        <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
+            <a style="height: 100px;font-size: 40px;line-height: 100px;" href="javascript:lookAnima()">
+                <i style="font-size: 40px;line-height: 100px" class="layui-icon  layui-icon-video"></i>&nbsp;
+                观看番剧
+            </a></li>
         <li style="height: 100px;font-size: 40px;line-height: 100px;" class="layui-nav-item">
             <a style="height: 100px;font-size: 40px;line-height: 100px;" href="/SuggestController/jumpSuggest">
                 <i style="font-size: 40px;line-height: 100px" class="layui-icon layui-icon-survey"></i>&nbsp;

@@ -156,3 +156,11 @@ $(document).ready(function () {
     $("#week"+week).addClass("layui-this");
     $("#zhou"+week).css("display","block");
 });
+
+function lookAnima() {
+    var animaurl=prompt("请输入樱花动漫番剧页面链接(不懂请看首页公告)");
+    if(animaurl.trim().length>0){
+        alert(animaurl);
+        window.location.replace("/AnimaController/chooseAnimaNums?url="+animaurl);
+    }
+}

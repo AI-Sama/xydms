@@ -84,7 +84,6 @@
     </script>
 </head>
 <body>
-
 <div id="loadYem"
      style="background-color: #f4f6f8;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 20000;">
     <div style="text-align: center;width: 200px;z-index: 20001;position: fixed;left: 50%;top: 35%;transform:translateX(-50%);">
@@ -116,7 +115,7 @@
     </ul>
     <div id="zhou1" style="display: none">
         <c:forEach items="${sessionScope.animaList.week1}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -127,7 +126,7 @@
     </div>
     <div id="zhou2" style="display: none">
         <c:forEach items="${sessionScope.animaList.week2}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -138,7 +137,7 @@
     </div>
     <div id="zhou3" style="display: none">
         <c:forEach items="${sessionScope.animaList.week3}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -149,7 +148,7 @@
     </div>
     <div id="zhou4" style="display: none">
         <c:forEach items="${sessionScope.animaList.week4}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height:60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -160,7 +159,7 @@
     </div>
     <div id="zhou5" style="display: none">
         <c:forEach items="${sessionScope.animaList.week5}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -171,7 +170,7 @@
     </div>
     <div id="zhou6" style="display: none">
         <c:forEach items="${sessionScope.animaList.week6}" var="week">
-            <a href="${week.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${week.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height: 60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${week.animaName}
@@ -182,7 +181,7 @@
     </div>
     <div id="zhou7" style="display: none">
         <c:forEach items="${sessionScope.animaList.week7}" var="zhou1">
-            <a href="${zhou1.animaAddr}">
+            <a href="/AnimaController/chooseAnimaNums?url=${zhou1.animaAddr}">
                 <div class="hoverAnima"
                      style="font-family: 楷体;line-height: 60px;font-size: 30px;width: 100%;height:60px;background-color: lightblue;color: white">
                     &#12288;&#12288;${zhou1.animaName}
@@ -243,7 +242,7 @@
 </div>
 <div style="width: 100%">
     <div style="text-align: center;color: white">
-        本网站资源均来自于网络,仅供学校社团内部交流使用,如有侵权,请联系管理员QQ79479334
+        本网站资源均来自于网络,不对资源进行储存,仅供学校社团内部交流使用,如有侵权,请联系管理员QQ79479334，谢谢
     </div>
 </div>
 <script>
