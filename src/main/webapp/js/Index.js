@@ -158,8 +158,8 @@ $(document).ready(function () {
 });
 
 function lookAnima() {
-    var animaurl=prompt("请输入樱花动漫番剧页面链接(不懂请看首页公告)");
-    if(animaurl.trim().length>0){
-        window.location.replace("/AnimaController/chooseAnimaNums?url="+animaurl);
+    var animaName=prompt("请输入番剧名称");
+    if(animaName.trim().length>0){
+        window.location.replace("/AnimaController/searchAnima?animaName="+animaName);
     }
 }

@@ -5,6 +5,7 @@ import com.service.AnimaService;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -85,6 +89,31 @@ public class AnimaController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/searchAnima", produces = {"text/html;charset=UTF-8;", "application/json;"})
+    public ModelAndView searchAnima(String animaName)throws Exception{
+       ModelAndView modelAndView=new ModelAndView();
+       String urlEncode= URLEncoder.encode(animaName,"gb2312");
+       String str="http://www.imomoe.io/search.asp?searchword=";
+        str+=urlEncode;
+        Connection.Response response=Jsoup.connect(str).method(Connection.Method.GET).ignoreContentType(true).execute();
+        Document document=response.parse();
+        Element elements=document.select(".pics").get(0);
+        Elements hrefs=elements.select("a[href]");
+        Elements names=elements.select("img[alt]");
+        Elements imgs=elements.select("img[src]");
+        List<Map> animas=new ArrayList<>();
+        for(int x=0;x<names.size();x++){
+            Map<String,String> map=new HashMap<>();
+            map.put("animaName",names.get(x).attr("alt"));
+            map.put("href",hrefs.get(2*x).attr("abs:href"));
+            map.put("imgs",imgs.get(x).attr("src"));
+            animas.add(map);
+        }
+        modelAndView.addObject("animas",animas);
+        modelAndView.setViewName("selectAnima");
+        System.out.println(animas);
+        return modelAndView;
+    }
     @RequestMapping(value = "/lookAnima", produces = {"text/html;charset=UTF-8;", "application/json;"})
     public String lookAnima(String url, Integer num, String animaName, HttpSession httpSession) throws Exception {
         if (httpSession.getAttribute(animaName) != null) {

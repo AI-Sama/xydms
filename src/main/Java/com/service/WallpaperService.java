@@ -55,7 +55,8 @@ public class WallpaperService {
     }
 
     public void saveFile(String fileName, MultipartFile file, String name, String imgMessage) {
-        if (!file.isEmpty()) {//储存图片
+        //储存图片
+        if (!file.isEmpty()) {
             try {
                 Wallpaper img = new Wallpaper();
                 img.setImgAddr(fileName);
